@@ -48,7 +48,7 @@
           <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nameUser" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="pwd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pwd" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="idR" Type="int" Nullable="false" />
         </EntityType>
@@ -194,7 +194,7 @@
           <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="idR" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EditInfoes" Relationship="Self.FK_EditInfo_User" FromRole="User" ToRole="EditInfo" />

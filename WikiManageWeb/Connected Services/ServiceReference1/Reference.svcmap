@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="692c1af3-2f0c-45ed-98b2-622f8a8b7657" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.57/WikiService/wikiService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wikiService.xsd" MetadataType="Schema" ID="b1dbc5ac-2338-4ac3-852c-24410d15be5f" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="wikiService.disco" MetadataType="Disco" ID="bdcc70a0-95a3-4a53-8e93-14de8447762d" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?disco" />
+    <MetadataFile FileName="wikiService1.xsd" MetadataType="Schema" ID="4e14ceff-7490-4b3f-9f01-429a60edf206" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="wikiService.wsdl" MetadataType="Wsdl" ID="72ab1754-1f55-4c14-a919-9601334465cd" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?wsdl" />
+    <MetadataFile FileName="wikiService2.xsd" MetadataType="Schema" ID="35774f02-2523-4c58-b716-f8933107abeb" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="wikiService3.xsd" MetadataType="Schema" ID="60838673-11ae-4fe9-a266-151c1699e2d0" SourceId="1" SourceUrl="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

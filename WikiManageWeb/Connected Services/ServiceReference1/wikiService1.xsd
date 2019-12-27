@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" />
+  <xs:import schemaLocation="http://192.168.1.57/WikiService/wikiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" />
+  <xs:element name="DangNhap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="userCaContract" nillable="true" type="q1:TaiKhoan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DangNhapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DangNhapResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DangKiTaiKhoanAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="userContract" nillable="true" type="q2:TaiKhoan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DangKiTaiKhoanAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DangKiTaiKhoanAdminResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KiemTraTaiKhoan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="userContract" nillable="true" type="q3:TaiKhoan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KiemTraTaiKhoanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="KiemTraTaiKhoanResult" nillable="true" type="q4:TaiKhoan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachDanhMuc">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="DanhSachDanhMucResult" nillable="true" type="q5:ArrayOfDanhMuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ThemMoiDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="category" nillable="true" type="q6:DanhMuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ThemMoiDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ThemMoiDanhMucResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

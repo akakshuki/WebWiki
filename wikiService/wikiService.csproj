@@ -73,8 +73,8 @@
   <ItemGroup>
     <Content Include="EF\wikiModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>wikiModel.Context.cs</LastGenOutput>
       <DependentUpon>wikiModel.edmx</DependentUpon>
+      <LastGenOutput>wikiModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EF\wikiModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
