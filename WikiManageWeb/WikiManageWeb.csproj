@@ -1781,6 +1781,7 @@
     <Content Include="Areas\Admin\Acess\css\simple-sidebar.css" />
     <Content Include="Areas\Admin\Acess\css\style.css" />
     <Content Include="Areas\Admin\Acess\css\StyleAdmin.css" />
+    <Content Include="Areas\Admin\Acess\img\w-letter-latin-alphabet-uppercase-virtual-keyboard-512.png" />
     <Content Include="Areas\Admin\Acess\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Areas\Admin\Acess\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Areas\Admin\Acess\vendor\bootstrap\js\bootstrap.js" />
@@ -3851,7 +3852,6 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Acess\img\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Acess\js\" />
     <Folder Include="Areas\Admin\Data\" />
