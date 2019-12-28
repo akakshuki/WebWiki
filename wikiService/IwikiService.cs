@@ -18,15 +18,10 @@ namespace wikiService
         #region User
         [OperationContract(Name = "DangNhap")]
         int Login(UserContract userCaContract);
-
         [OperationContract(Name = "DangKiTaiKhoanAdmin")]
         bool RegisterAdmin(UserContract userContract);
-
         [OperationContract(Name = "KiemTraiTaiKhoanDatontai")]
         bool checkEmaiilUser(string email);
-        
-        
-
         [OperationContract(Name = "KiemTraTaiKhoan")]
         UserContract CheckRoleUser(UserContract userContract);
         #endregion
@@ -36,9 +31,16 @@ namespace wikiService
 
         [OperationContract(Name = "DanhSachDanhMuc")]
         IEnumerable<CategoryContract> ListCategory();
-
         [OperationContract(Name = "ThemMoiDanhMuc")]
         bool CreateCategory(CategoryContract category);
+        [OperationContract (Name = "KiemTraDanhMucDaTonTai")]
+        bool CheckCategoryExist(string categoryName);
+        [OperationContract (Name =  "ChitTietDanhMuc")]
+        CategoryContract DetailCategory(int idCategory);
+        [OperationContract (Name = "SuaDanhMuc")]
+        bool EditCategory(CategoryContract category);
+        [OperationContract(Name = "XoaDanhMuc")]
+        bool DeleteCategory(int id);
 
         #endregion
 

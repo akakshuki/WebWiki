@@ -5,14 +5,13 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Category"))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CategoryMv</h4>
+        <h4>Sửa Category</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -22,12 +21,16 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-danger px-5 mt-5"><span class="text-center text-danger font-weight-bold">@ViewBag.Message</span></div>
+                }
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-dark" />
             </div>
         </div>
     </div>

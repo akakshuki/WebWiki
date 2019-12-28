@@ -19,5 +19,32 @@ namespace wikiService.Business
                 }).ToList();
             return data;
         }
+
+        public bool CheckCategoryExist(string categoryName)
+        {
+          return  new CategoryDao().CheckCategoryExist(categoryName);
+        }
+
+        public CategoryContract GetDetailCategory(int idCategory)
+        {
+            var newCategory = new CategoryContract();
+            var result = new CategoryDao().GetDetailCategories(idCategory);
+            newCategory.ID = result.idCate;
+            newCategory.Name = result.nameCate;
+            return newCategory;
+        }
+
+        public bool CreateCategory(CategoryContract category)
+        {
+            var result = new CategoryDao().CreateNewCategory(category);
+            return result;
+
+        }
+
+        public bool EditCategory(CategoryContract category)
+        {
+          var result = new CategoryDao().EditCategory(category);
+          return result;
+        }
     }
 }

@@ -15,12 +15,15 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right " id="sidebar-wrapper">
-            <div class="sidebar-heading "><h2 id="logoAdmin">W</h2></div>
+            <a id="homeLogo" class="text-center mb-5"  href="@Url.Action("index","Home")">
+                <div class="sidebar-heading "><h1 id="logoAdmin">W</h1></div>
+                <span class="text-center mx-4">Wikipiamini</span>
+            </a>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+                <a href="@Url.Action("Index","Category")" class="list-group-item list-group-item-action bg-light">Danh Mục</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Quản lý bài viết</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Quản lý Nhóm người dùng</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Các Mods khác</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
             </div>
@@ -29,7 +32,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-            @{Html.RenderAction("MenuHeader","Login");}
+            @{Html.RenderAction("MenuHeader", "Login");}
             <div class="container body-content">
                 @RenderBody()
 

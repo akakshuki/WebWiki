@@ -27,8 +27,29 @@ namespace wikiService
         //Them moi danh muc
         public bool CreateCategory(CategoryContract category)
         {
-            throw new NotImplementedException();
+            return new Responsetory().CreateCategory(category);
         }
+        //kiem tra danh muc
+        public bool CheckCategoryExist(string categoryName)
+        {
+            return  new Responsetory().checkCategoryExist(categoryName);
+        }
+        //chi tiet danh muc
+        public CategoryContract DetailCategory(int idCategory)
+        {
+            return new Responsetory().GetDetailCategory(idCategory);
+        }
+        //sua danh muc
+        public bool EditCategory(CategoryContract category)
+        {
+           return new Responsetory().EditCategory(category);
+        }
+        //xoa danh muc
+        public bool DeleteCategory(int id)
+        {
+            return  new Responsetory().DeleteCategory(id);
+        }
+
 
         #endregion
 

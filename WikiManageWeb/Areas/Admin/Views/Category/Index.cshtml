@@ -5,11 +5,19 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh mục</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@if (( TempData["SuccessMes"] != null))
+{
+    <div class="alert alert-success px-5 mt-5"><span class="text-center text-dark font-weight-bold">@TempData["SuccessMes"]</span></div>
+}
+@if ( TempData["Message"] != null)
+{
+    <div class="alert alert-success px-5 mt-5"><span class="text-center text-dark font-weight-bold">@TempData["Message"]</span></div>
+}
 <table class="table">
     <tr>
         <th>
@@ -17,18 +25,18 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

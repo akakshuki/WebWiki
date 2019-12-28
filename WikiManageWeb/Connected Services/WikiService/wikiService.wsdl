@@ -44,6 +44,30 @@
   <wsdl:message name="DichVuWiki_ThemMoiDanhMuc_OutputMessage">
     <wsdl:part name="parameters" element="tns:ThemMoiDanhMucResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_KiemTraDanhMucDaTonTai_InputMessage">
+    <wsdl:part name="parameters" element="tns:KiemTraDanhMucDaTonTai" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_KiemTraDanhMucDaTonTai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KiemTraDanhMucDaTonTaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ChitTietDanhMuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChitTietDanhMuc" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ChitTietDanhMuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChitTietDanhMucResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_SuaDanhMuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuaDanhMuc" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_SuaDanhMuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuaDanhMucResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_XoaDanhMuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:XoaDanhMuc" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_XoaDanhMuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XoaDanhMucResponse" />
+  </wsdl:message>
   <wsdl:portType name="DichVuWiki">
     <wsdl:operation name="DangNhap">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DangNhap" message="tns:DichVuWiki_DangNhap_InputMessage" />
@@ -68,6 +92,22 @@
     <wsdl:operation name="ThemMoiDanhMuc">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiDanhMuc" message="tns:DichVuWiki_ThemMoiDanhMuc_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiDanhMucResponse" message="tns:DichVuWiki_ThemMoiDanhMuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KiemTraDanhMucDaTonTai">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTai" message="tns:DichVuWiki_KiemTraDanhMucDaTonTai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTaiResponse" message="tns:DichVuWiki_KiemTraDanhMucDaTonTai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChitTietDanhMuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ChitTietDanhMuc" message="tns:DichVuWiki_ChitTietDanhMuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ChitTietDanhMucResponse" message="tns:DichVuWiki_ChitTietDanhMuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuaDanhMuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/SuaDanhMuc" message="tns:DichVuWiki_SuaDanhMuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/SuaDanhMucResponse" message="tns:DichVuWiki_SuaDanhMuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XoaDanhMuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/XoaDanhMuc" message="tns:DichVuWiki_XoaDanhMuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/XoaDanhMucResponse" message="tns:DichVuWiki_XoaDanhMuc_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_DichVuWiki" type="tns:DichVuWiki">
@@ -119,6 +159,42 @@
     </wsdl:operation>
     <wsdl:operation name="ThemMoiDanhMuc">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/ThemMoiDanhMuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KiemTraDanhMucDaTonTai">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChitTietDanhMuc">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/ChitTietDanhMuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaDanhMuc">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/SuaDanhMuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XoaDanhMuc">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/XoaDanhMuc" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

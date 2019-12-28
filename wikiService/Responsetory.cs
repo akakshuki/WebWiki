@@ -12,16 +12,7 @@ namespace wikiService
 {
     public class Responsetory
     {
-        #region category
-
-        public List<CategoryContract> listCategories()
-        {
-            var data = new CategoryBus().ListCategories();
-            return data;
-        }
-
-        #endregion
-
+       
         #region user
 
         public int LoginUser(UserContract userCaContract)
@@ -42,11 +33,46 @@ namespace wikiService
             return new LoginBus().Register(userContract);
         }
 
-        #endregion
-
         public bool CheckUserExist(string email)
         {
-            return  new UserDao().CheckUserExist(email);
+            return new UserDao().CheckUserExist(email);
         }
+        #endregion
+
+        #region category
+
+        public List<CategoryContract> listCategories()
+        {
+            var data = new CategoryBus().ListCategories();
+            return data;
+
+        }
+        public bool checkCategoryExist(string categoryName)
+        {
+            return new CategoryBus().CheckCategoryExist(categoryName);
+        }
+
+        public CategoryContract GetDetailCategory(int idCategory)
+        {
+            return new CategoryBus().GetDetailCategory(idCategory);
+        }
+
+        public bool EditCategory(CategoryContract category)
+        {
+            return  new CategoryBus().EditCategory(category);
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            return new CategoryDao().DeleteCategory(id);
+        }
+        public bool CreateCategory(CategoryContract category)
+        {
+            return new CategoryBus().CreateCategory(category);
+        }
+        #endregion
+
+
+
     }
 }

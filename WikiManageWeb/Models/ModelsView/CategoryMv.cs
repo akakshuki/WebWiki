@@ -10,7 +10,8 @@ namespace WikiManageWeb.Models.ModelsView
     {
         
         public int ID { get; set; }
-        [Display(Name = "Danh Muc")]
+        [Display(Name = "Tên danh mục")]
+        [Required(ErrorMessage = "Điền đủ thông tin ")]
         public string Name { get; set; }
     }
 }

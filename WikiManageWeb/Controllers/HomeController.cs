@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace WikiManageWeb.Controllers
 {
+    [HandleError]
     public class HomeController : Controller
     {
         // GET: Home

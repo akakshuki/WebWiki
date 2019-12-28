@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WikiManageWeb.Dao;
+using WikiManageWeb.Models.ModelsView;
 
 namespace WikiManageWeb.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         // GET: Admin/Category
         public ActionResult Index()
@@ -30,61 +31,119 @@ namespace WikiManageWeb.Areas.Admin.Controllers
 
         // POST: Admin/Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CategoryMv category)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    if (!new CategoryDao().checkExistCategory(category.Name))
+                    {
+                        if (new CategoryDao().CreateNewCategory(category))
+                        {
+                            TempData["SuccessMes"] = "Thêm mới thành công";
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            ViewBag.Message = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
+                            return View();
+                        }
 
-                return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Danh Mục này đã có sẵn từ trước vui lòng kiểm tra lại";
+                        return View();
+                    }
+
+                }
+                catch
+                {
+                    ViewBag.Message = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
+                    return View();
+                }
+
             }
-            catch
+            else
             {
+
+                
                 return View();
             }
         }
 
         // GET: Admin/Category/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            public ActionResult Edit(int id)
+            {
+                 var data = new CategoryDao().getCategoryDetail(id);  
+                return View(data);
+            }
 
         // POST: Admin/Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(CategoryMv category)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                try
+                {
+                    if (! new CategoryDao().checkExistCategory(category.Name))
+                    {
+                        if (new CategoryDao().EditCategory(category))
+                        {
+                            TempData["SuccessMes"] = "Sửa danh mục thành công";
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            ViewBag.Message = "Hệ thống gặp sự cố  không thể thêm được thử lại";
+                            return View();
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Danh Mục này đã có sẵn từ trước vui lòng kiểm tra lại";
+                        return View();
+                    }
 
-                return RedirectToAction("Index");
+
+                   
+                }
+                catch
+                {
+                    ViewBag.Message = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
+                    return View();
+                }
             }
-            catch
+            else
             {
                 return View();
             }
         }
-
-        // GET: Admin/Category/Delete/5
+     
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Admin/Category/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                if (new CategoryDao().DeleteCategory(id))
+                {
+                    TempData["SuccessMes"] = "Xóa danh mục thành công";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["Message"] = "Danh mục đang có bài viết không xóa được";
+                    return View("Index");
+                }
+
+               
             }
             catch
             {
-                return View();
+                TempData["Message"] = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
+                return View("Index");
             }
         }
     }

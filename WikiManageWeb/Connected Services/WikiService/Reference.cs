@@ -238,6 +238,30 @@ namespace WikiManageWeb.WikiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThemMoiDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/ThemMoiDanhMucResponse")]
         System.Threading.Tasks.Task<bool> ThemMoiDanhMucAsync(WikiManageWeb.WikiService.DanhMuc category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTai", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTaiResponse")]
+        bool KiemTraDanhMucDaTonTai(string categoryName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTai", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraDanhMucDaTonTaiResponse")]
+        System.Threading.Tasks.Task<bool> KiemTraDanhMucDaTonTaiAsync(string categoryName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ChitTietDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/ChitTietDanhMucResponse")]
+        WikiManageWeb.WikiService.DanhMuc ChitTietDanhMuc(int idCategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ChitTietDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/ChitTietDanhMucResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.DanhMuc> ChitTietDanhMucAsync(int idCategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/SuaDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/SuaDanhMucResponse")]
+        bool SuaDanhMuc(WikiManageWeb.WikiService.DanhMuc category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/SuaDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/SuaDanhMucResponse")]
+        System.Threading.Tasks.Task<bool> SuaDanhMucAsync(WikiManageWeb.WikiService.DanhMuc category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/XoaDanhMucResponse")]
+        bool XoaDanhMuc(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/XoaDanhMucResponse")]
+        System.Threading.Tasks.Task<bool> XoaDanhMucAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -313,6 +337,38 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> ThemMoiDanhMucAsync(WikiManageWeb.WikiService.DanhMuc category) {
             return base.Channel.ThemMoiDanhMucAsync(category);
+        }
+        
+        public bool KiemTraDanhMucDaTonTai(string categoryName) {
+            return base.Channel.KiemTraDanhMucDaTonTai(categoryName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> KiemTraDanhMucDaTonTaiAsync(string categoryName) {
+            return base.Channel.KiemTraDanhMucDaTonTaiAsync(categoryName);
+        }
+        
+        public WikiManageWeb.WikiService.DanhMuc ChitTietDanhMuc(int idCategory) {
+            return base.Channel.ChitTietDanhMuc(idCategory);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.DanhMuc> ChitTietDanhMucAsync(int idCategory) {
+            return base.Channel.ChitTietDanhMucAsync(idCategory);
+        }
+        
+        public bool SuaDanhMuc(WikiManageWeb.WikiService.DanhMuc category) {
+            return base.Channel.SuaDanhMuc(category);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SuaDanhMucAsync(WikiManageWeb.WikiService.DanhMuc category) {
+            return base.Channel.SuaDanhMucAsync(category);
+        }
+        
+        public bool XoaDanhMuc(int id) {
+            return base.Channel.XoaDanhMuc(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> XoaDanhMucAsync(int id) {
+            return base.Channel.XoaDanhMucAsync(id);
         }
     }
 }
