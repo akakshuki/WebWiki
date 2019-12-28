@@ -42,7 +42,14 @@ namespace wikiService
 
         public bool RegisterAdmin(UserContract userContract)
         {
-            throw new NotImplementedException();
+            userContract.idR = 1;
+            var result = new Responsetory().AdminRegister(userContract);
+            return result;
+        }
+
+        public bool checkEmaiilUser(string email)
+        {
+            return new Responsetory().CheckUserExist(email);
         }
 
         public UserContract CheckRoleUser(UserContract userContract)

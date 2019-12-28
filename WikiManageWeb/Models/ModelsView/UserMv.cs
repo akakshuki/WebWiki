@@ -13,9 +13,12 @@ namespace WikiManageWeb.Models.ModelsView
         [Display(Name = "Tên tài khoản")]
         public string UserName { get; set; }
         [Display(Name = "Email")]
-        public string email { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
         [Display(Name = "Mật Khẩu")]
         public string Password { get; set; }
+        [Compare("Password",ErrorMessage = "Mật khẩu không khớp")]
+        public string Password1 { get; set; }
         [Display(Name = "Trạng thái")]
         public bool active { get; set; }
         [Display(Name = "Mã Quyền")]

@@ -18,21 +18,65 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="text-center">
-            @using (Html.BeginForm("","Home"))
-            {
-                
-            }
+            <img class="mb-4 px-2" src="~/Areas/Admin/Acess/img/w-letter-latin-alphabet-uppercase-virtual-keyboard-512.png" width="83" height="72" />
         </div>
 
+        @using (Html.BeginForm("Register", "Login", new { @class = "login-form" }))
+        {
+            <div class="form-signin text-center ">
+                <h1 class="h3 mb-5 font-weight-normal">Please Regiser</h1>
+                <div class="form-group m-2">
+                    <label for="inputExmail" class="sr-only">Email address</label>
+                    <input type="email" id="inputEmail" class="form-control" name="Email" placeholder=" Email " required="" autofocus="">
+                </div>
+                <div class="form-group m-2">
+                    <label for="" class="sr-only">Tên tài khoản</label>
+                    <input type="text" id="inputFullName" class="form-control" name="UserName" placeholder="Tên người dùng, nicknam, bla,bla...." required="" autofocus="">
+                </div>
+                <div class="form-group m-2">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" name="Password" data-rule-password="true" placeholder="Mật khẩu" required="">
+                </div>
+                <div class="form-group m-2">
+                    <label for="inputPassword1" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword1" class="form-control" name="Password1" id="inputPassword1" data-rule-password="true" data-rule-equalTo="#inputPassword" placeholder="Nhập lại mật khẩu" required="">
+                </div>
 
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+                @if (ViewBag.Message != null)
+                {
+                    <p class="alert alert-danger font-weight-bold">
+                        @ViewBag.Message
+                    </p>
+                }
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
+                <p class="mt-5 mb-3 text-muted">© 2019 </p>
+            </div>
+        }
+
+</div>
+<script>
+    function validatePassword() {
+        var validator = $("#loginForm").validate({
+            rules: {
+                Password: "required",
+                Password1: {
+                    equalTo: "#password"
+                }
+            },  
+            messages: {
+                Password: " Enter Password",
+                Password1: " Enter Confirm Password Same as Password"
+            }
+        });
+        if (validator.form()) {
+            alert('Sucess');
+        }
+    }
+
+</script>
 </body>
 </html>
 

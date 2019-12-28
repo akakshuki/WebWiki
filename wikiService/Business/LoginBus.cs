@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using ShopOnline.Common;
 using wikiService.Dao;
@@ -14,7 +15,7 @@ namespace wikiService.Business
         public int UserLogin(UserContract userCaContract)
         {
             var email = userCaContract.email;
-            var password = Encryptor.MD5Hash(Encryptor.Base64Hash(userCaContract.email) + Encryptor.Base64Hash(userCaContract.Password));
+            var password =userCaContract.Password;
             var result = new UserDao().Login(email, password);
             return result;
         }
@@ -29,6 +30,14 @@ namespace wikiService.Business
             userRole.idR = data.idR;
             
             return userRole;
+        }
+
+        public bool Register(UserContract userContract)
+        {
+
+            var result = new UserDao().CreateAccount(userContract);
+            return result;
+
         }
     }
 }

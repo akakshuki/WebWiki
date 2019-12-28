@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using wikiService.Business;
+using wikiService.Dao;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
 using wikiService.ModelViewContract;
@@ -11,11 +12,17 @@ namespace wikiService
 {
     public class Responsetory
     {
+        #region category
+
         public List<CategoryContract> listCategories()
         {
             var data = new CategoryBus().ListCategories();
             return data;
         }
+
+        #endregion
+
+        #region user
 
         public int LoginUser(UserContract userCaContract)
         {
@@ -28,6 +35,18 @@ namespace wikiService
             var result = new LoginBus().CheckRoleUser(userContract);
             return result;
 
+        }
+
+        public bool AdminRegister(UserContract userContract)
+        {
+            return new LoginBus().Register(userContract);
+        }
+
+        #endregion
+
+        public bool CheckUserExist(string email)
+        {
+            return  new UserDao().CheckUserExist(email);
         }
     }
 }

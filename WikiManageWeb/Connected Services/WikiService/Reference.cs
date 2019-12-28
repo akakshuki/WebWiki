@@ -215,6 +215,12 @@ namespace WikiManageWeb.WikiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DangKiTaiKhoanAdmin", ReplyAction="http://tempuri.org/DichVuWiki/DangKiTaiKhoanAdminResponse")]
         System.Threading.Tasks.Task<bool> DangKiTaiKhoanAdminAsync(WikiManageWeb.WikiService.TaiKhoan userContract);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraiTaiKhoanDatontai", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraiTaiKhoanDatontaiResponse")]
+        bool KiemTraiTaiKhoanDatontai(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraiTaiKhoanDatontai", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraiTaiKhoanDatontaiResponse")]
+        System.Threading.Tasks.Task<bool> KiemTraiTaiKhoanDatontaiAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraTaiKhoanResponse")]
         WikiManageWeb.WikiService.TaiKhoan KiemTraTaiKhoan(WikiManageWeb.WikiService.TaiKhoan userContract);
         
@@ -275,6 +281,14 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> DangKiTaiKhoanAdminAsync(WikiManageWeb.WikiService.TaiKhoan userContract) {
             return base.Channel.DangKiTaiKhoanAdminAsync(userContract);
+        }
+        
+        public bool KiemTraiTaiKhoanDatontai(string email) {
+            return base.Channel.KiemTraiTaiKhoanDatontai(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> KiemTraiTaiKhoanDatontaiAsync(string email) {
+            return base.Channel.KiemTraiTaiKhoanDatontaiAsync(email);
         }
         
         public WikiManageWeb.WikiService.TaiKhoan KiemTraTaiKhoan(WikiManageWeb.WikiService.TaiKhoan userContract) {

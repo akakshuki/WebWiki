@@ -48,5 +48,49 @@ namespace wikiService.Dao
             var result = db.Users.Find(userContractId);
             return result;
         }
+
+        public bool CreateAccount(UserContract userContract)
+        {
+            var data = new User();
+            data.nameUser = userContract.UserName;
+            data.email = userContract.email;
+            data.pwd = userContract.Password;
+            data.idR = userContract.idR;
+            data.active = true;
+
+            db.Users.Add(data);
+            try
+            {
+                if (db.SaveChanges()>0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+
+        }
+
+        public bool CheckUserExist(string email)
+        {
+            var result = db.Users.SingleOrDefault(x => x.email == email);
+            if (result != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+             
+
+        }
     }
 }

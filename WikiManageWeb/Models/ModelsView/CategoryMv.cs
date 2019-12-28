@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WikiManageWeb.Models.ModelsView
 {
-    public class CategoryMv
+    public partial class CategoryMv
     {
         
         public int ID { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Common
+﻿namespace WikiManageWeb.Common
 {
     public static class CommonConstants
     {

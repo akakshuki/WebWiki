@@ -5,10 +5,17 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace ShopOnline.Common
+namespace WikiManageWeb.Common
 {
     public class Encryptor
     {
+        public static string Base64Hash(string text)
+        {
+            byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(text);
+            string output = System.Convert.ToBase64String(data);
+
+            return output;
+        }
         public static string MD5Hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();

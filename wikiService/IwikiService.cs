@@ -22,6 +22,11 @@ namespace wikiService
         [OperationContract(Name = "DangKiTaiKhoanAdmin")]
         bool RegisterAdmin(UserContract userContract);
 
+        [OperationContract(Name = "KiemTraiTaiKhoanDatontai")]
+        bool checkEmaiilUser(string email);
+        
+        
+
         [OperationContract(Name = "KiemTraTaiKhoan")]
         UserContract CheckRoleUser(UserContract userContract);
         #endregion
