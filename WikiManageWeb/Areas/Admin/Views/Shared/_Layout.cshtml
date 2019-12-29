@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Areas/Admin/Acess/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Acess/css/simple-sidebar.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Acess/css/StyleAdmin.css" rel="stylesheet" />
 </head>
@@ -15,7 +15,7 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right " id="sidebar-wrapper">
-            <a id="homeLogo" class="text-center mb-5"  href="@Url.Action("index","Home")">
+            <a id="homeLogo" class="text-center mb-5" href="@Url.Action("index","Home")">
                 <div class="sidebar-heading "><h1 id="logoAdmin">W</h1></div>
                 <span class="text-center mx-4">Wikipiamini</span>
             </a>
@@ -55,5 +55,6 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+    @RenderSection("jsFooter", false);
 </body>
 </html>

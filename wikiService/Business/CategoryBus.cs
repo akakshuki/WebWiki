@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using wikiService.Dao;
-using wikiService.ModelViewContract;
+using wikiService.Models.ModelViewContract;
+
 
 namespace wikiService.Business
 {

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBWikiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBWikiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="idCate" />
@@ -18,7 +18,7 @@
           </Key>
           <Property Name="idEI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idInfo" Type="int" Nullable="false" />
-          <Property Name="contentEdit" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contentEdit" Type="ntext" Nullable="false" />
           <Property Name="dayCreateEI" Type="datetime" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
         </EntityType>
@@ -27,8 +27,8 @@
             <PropertyRef Name="idInfor" />
           </Key>
           <Property Name="idInfor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titleInfo" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="contentInfo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="titleInfo" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="contentInfo" Type="ntext" Nullable="false" />
           <Property Name="dayCreateInfo" Type="datetime" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
           <Property Name="idCate" Type="int" Nullable="false" />
@@ -139,18 +139,44 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBWikiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBWikiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="DBWikiModel.Category" />
+          <EntitySet Name="EditInfoes" EntityType="DBWikiModel.EditInfo" />
+          <EntitySet Name="Information" EntityType="DBWikiModel.Information" />
+          <EntitySet Name="Roles" EntityType="DBWikiModel.Role" />
+          <EntitySet Name="Users" EntityType="DBWikiModel.User" />
+          <AssociationSet Name="FK_Information_Category" Association="DBWikiModel.FK_Information_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EditInfo_Information" Association="DBWikiModel.FK_EditInfo_Information">
+            <End Role="Information" EntitySet="Information" />
+            <End Role="EditInfo" EntitySet="EditInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EditInfo_User" Association="DBWikiModel.FK_EditInfo_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="EditInfo" EntitySet="EditInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Information_User" Association="DBWikiModel.FK_Information_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="DBWikiModel.FK_User_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="idCate" />
           </Key>
           <Property Name="idCate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nameCate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Information" Relationship="Self.FK_Information_Category" FromRole="Category" ToRole="Information" />
+          <Property Name="nameCate" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Information" Relationship="DBWikiModel.FK_Information_Category" FromRole="Category" ToRole="Information" />
         </EntityType>
         <EntityType Name="EditInfo">
           <Key>
@@ -158,52 +184,52 @@
           </Key>
           <Property Name="idEI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idInfo" Type="Int32" Nullable="false" />
-          <Property Name="contentEdit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contentEdit" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="dayCreateEI" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Information" Relationship="Self.FK_EditInfo_Information" FromRole="EditInfo" ToRole="Information" />
-          <NavigationProperty Name="User" Relationship="Self.FK_EditInfo_User" FromRole="EditInfo" ToRole="User" />
+          <NavigationProperty Name="Information" Relationship="DBWikiModel.FK_EditInfo_Information" FromRole="EditInfo" ToRole="Information" />
+          <NavigationProperty Name="User" Relationship="DBWikiModel.FK_EditInfo_User" FromRole="EditInfo" ToRole="User" />
         </EntityType>
         <EntityType Name="Information">
           <Key>
             <PropertyRef Name="idInfor" />
           </Key>
           <Property Name="idInfor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titleInfo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="contentInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="titleInfo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="contentInfo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="dayCreateInfo" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
           <Property Name="idCate" Type="Int32" Nullable="false" />
           <Property Name="hideInfo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Information_Category" FromRole="Information" ToRole="Category" />
-          <NavigationProperty Name="EditInfoes" Relationship="Self.FK_EditInfo_Information" FromRole="Information" ToRole="EditInfo" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Information_User" FromRole="Information" ToRole="User" />
+          <NavigationProperty Name="Category" Relationship="DBWikiModel.FK_Information_Category" FromRole="Information" ToRole="Category" />
+          <NavigationProperty Name="EditInfoes" Relationship="DBWikiModel.FK_EditInfo_Information" FromRole="Information" ToRole="EditInfo" />
+          <NavigationProperty Name="User" Relationship="DBWikiModel.FK_Information_User" FromRole="Information" ToRole="User" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="idR" />
           </Key>
           <Property Name="idR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nameR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+          <Property Name="nameR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="DBWikiModel.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="idUser" />
           </Key>
           <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nameUser" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <Property Name="idR" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EditInfoes" Relationship="Self.FK_EditInfo_User" FromRole="User" ToRole="EditInfo" />
-          <NavigationProperty Name="Information" Relationship="Self.FK_Information_User" FromRole="User" ToRole="Information" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="EditInfoes" Relationship="DBWikiModel.FK_EditInfo_User" FromRole="User" ToRole="EditInfo" />
+          <NavigationProperty Name="Information" Relationship="DBWikiModel.FK_Information_User" FromRole="User" ToRole="Information" />
+          <NavigationProperty Name="Role" Relationship="DBWikiModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Information_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Information" Type="Self.Information" Multiplicity="*" />
+          <End Type="DBWikiModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="DBWikiModel.Information" Role="Information" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="idCate" />
@@ -214,8 +240,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EditInfo_Information">
-          <End Role="Information" Type="Self.Information" Multiplicity="1" />
-          <End Role="EditInfo" Type="Self.EditInfo" Multiplicity="*" />
+          <End Type="DBWikiModel.Information" Role="Information" Multiplicity="1" />
+          <End Type="DBWikiModel.EditInfo" Role="EditInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Information">
               <PropertyRef Name="idInfor" />
@@ -226,8 +252,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EditInfo_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="EditInfo" Type="Self.EditInfo" Multiplicity="*" />
+          <End Type="DBWikiModel.User" Role="User" Multiplicity="1" />
+          <End Type="DBWikiModel.EditInfo" Role="EditInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="idUser" />
@@ -238,8 +264,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Information_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Information" Type="Self.Information" Multiplicity="*" />
+          <End Type="DBWikiModel.User" Role="User" Multiplicity="1" />
+          <End Type="DBWikiModel.Information" Role="Information" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="idUser" />
@@ -250,8 +276,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <End Type="DBWikiModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DBWikiModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="idR" />
@@ -261,33 +287,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBWikiEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="EditInfoes" EntityType="Self.EditInfo" />
-          <EntitySet Name="Information" EntityType="Self.Information" />
-          <EntitySet Name="Roles" EntityType="Self.Role" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_Information_Category" Association="Self.FK_Information_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Information" EntitySet="Information" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EditInfo_Information" Association="Self.FK_EditInfo_Information">
-            <End Role="Information" EntitySet="Information" />
-            <End Role="EditInfo" EntitySet="EditInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EditInfo_User" Association="Self.FK_EditInfo_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="EditInfo" EntitySet="EditInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Information_User" Association="Self.FK_Information_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Information" EntitySet="Information" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -297,52 +296,52 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="DBWikiModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="idCate" ColumnName="idCate" />
                 <ScalarProperty Name="nameCate" ColumnName="nameCate" />
+                <ScalarProperty Name="idCate" ColumnName="idCate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EditInfoes">
             <EntityTypeMapping TypeName="DBWikiModel.EditInfo">
               <MappingFragment StoreEntitySet="EditInfo">
-                <ScalarProperty Name="idEI" ColumnName="idEI" />
-                <ScalarProperty Name="idInfo" ColumnName="idInfo" />
-                <ScalarProperty Name="contentEdit" ColumnName="contentEdit" />
-                <ScalarProperty Name="dayCreateEI" ColumnName="dayCreateEI" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="dayCreateEI" ColumnName="dayCreateEI" />
+                <ScalarProperty Name="contentEdit" ColumnName="contentEdit" />
+                <ScalarProperty Name="idInfo" ColumnName="idInfo" />
+                <ScalarProperty Name="idEI" ColumnName="idEI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Information">
             <EntityTypeMapping TypeName="DBWikiModel.Information">
               <MappingFragment StoreEntitySet="Information">
-                <ScalarProperty Name="idInfor" ColumnName="idInfor" />
-                <ScalarProperty Name="titleInfo" ColumnName="titleInfo" />
-                <ScalarProperty Name="contentInfo" ColumnName="contentInfo" />
-                <ScalarProperty Name="dayCreateInfo" ColumnName="dayCreateInfo" />
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
-                <ScalarProperty Name="idCate" ColumnName="idCate" />
                 <ScalarProperty Name="hideInfo" ColumnName="hideInfo" />
+                <ScalarProperty Name="idCate" ColumnName="idCate" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="dayCreateInfo" ColumnName="dayCreateInfo" />
+                <ScalarProperty Name="contentInfo" ColumnName="contentInfo" />
+                <ScalarProperty Name="titleInfo" ColumnName="titleInfo" />
+                <ScalarProperty Name="idInfor" ColumnName="idInfor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="DBWikiModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="idR" ColumnName="idR" />
                 <ScalarProperty Name="nameR" ColumnName="nameR" />
+                <ScalarProperty Name="idR" ColumnName="idR" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DBWikiModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
-                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="pwd" ColumnName="pwd" />
-                <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="idR" ColumnName="idR" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

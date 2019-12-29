@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
-using wikiService.ModelViewContract;
+
 
 namespace wikiService
 {
@@ -14,10 +14,51 @@ namespace wikiService
     // NOTE: In order to launch WCF Test Client for testing this service, please select wikiService.svc or wikiService.svc.cs at the Solution Explorer and start debugging.
     public class wikiService : IwikiService
     {
+
+        #region Product
+
+        public IEnumerable<ProductViewContract> ListAllProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductViewContract> ListAllProductSeen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductViewContract> ListAllProductUnseen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckTitleExist(string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreateNewProduct(ProductViewContract product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool EditProduct(ProductViewContract product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
         #region Category
 
         //Danh sach danh muc
-       
+
 
         public IEnumerable<CategoryContract> ListCategory()
         {
@@ -32,7 +73,7 @@ namespace wikiService
         //kiem tra danh muc
         public bool CheckCategoryExist(string categoryName)
         {
-            return  new Responsetory().checkCategoryExist(categoryName);
+            return new Responsetory().checkCategoryExist(categoryName);
         }
         //chi tiet danh muc
         public CategoryContract DetailCategory(int idCategory)
@@ -42,12 +83,12 @@ namespace wikiService
         //sua danh muc
         public bool EditCategory(CategoryContract category)
         {
-           return new Responsetory().EditCategory(category);
+            return new Responsetory().EditCategory(category);
         }
         //xoa danh muc
         public bool DeleteCategory(int id)
         {
-            return  new Responsetory().DeleteCategory(id);
+            return new Responsetory().DeleteCategory(id);
         }
 
 
@@ -75,8 +116,8 @@ namespace wikiService
 
         public UserContract CheckRoleUser(UserContract userContract)
         {
-           var result = new Responsetory().CheckRoleUser(userContract);
-           return result;
+            var result = new Responsetory().CheckRoleUser(userContract);
+            return result;
         }
         #endregion
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" />
-  <xs:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" />
   <xs:element name="DangNhap">
     <xs:complexType>
       <xs:sequence>
@@ -66,14 +65,14 @@
   <xs:element name="DanhSachDanhMucResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="DanhSachDanhMucResult" nillable="true" type="q5:ArrayOfDanhMuc" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachDanhMucResult" nillable="true" type="q5:ArrayOfDanhMuc" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ThemMoiDanhMuc">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="category" nillable="true" type="q6:DanhMuc" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="category" nillable="true" type="q6:DanhMuc" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -108,14 +107,14 @@
   <xs:element name="ChitTietDanhMucResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="ChitTietDanhMucResult" nillable="true" type="q7:DanhMuc" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="ChitTietDanhMucResult" nillable="true" type="q7:DanhMuc" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SuaDanhMuc">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/wikiService.ModelViewContract" minOccurs="0" name="category" nillable="true" type="q8:DanhMuc" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="category" nillable="true" type="q8:DanhMuc" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -137,6 +136,98 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="XoaDanhMucResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiViet">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiVietResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachTatCaBaiVietResult" nillable="true" type="q9:ArrayOfBaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiVietDaXem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiVietDaXemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachTatCaBaiVietDaXemResult" nillable="true" type="q10:ArrayOfBaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiVietChuaXem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachTatCaBaiVietChuaXemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachTatCaBaiVietChuaXemResult" nillable="true" type="q11:ArrayOfBaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KiemTraTieuDeDaTonTai">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KiemTraTieuDeDaTonTaiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KiemTraTieuDeDaTonTaiResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaoBaiVietMoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q12:BaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaoBaiVietMoiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TaoBaiVietMoiResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CapNhatBaiViet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q13:BaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CapNhatBaiVietResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CapNhatBaiVietResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XoaBaiViet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XoaBaiVietResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="XoaBaiVietResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -6,7 +6,7 @@ using wikiService.Business;
 using wikiService.Dao;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
-using wikiService.ModelViewContract;
+
 
 namespace wikiService
 {

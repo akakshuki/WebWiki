@@ -124,6 +124,8 @@
     </Compile>
     <Compile Include="IwikiService.cs" />
     <Compile Include="Models\ModelViewContract\CategoryContract.cs" />
+    <Compile Include="Models\ModelViewContract\EditProductViewContract.cs" />
+    <Compile Include="Models\ModelViewContract\ProductViewContract.cs" />
     <Compile Include="Models\ModelViewContract\UserContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsetory.cs" />

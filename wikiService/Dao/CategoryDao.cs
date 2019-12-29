@@ -5,7 +5,8 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.ModelBinding;
 using wikiService.EF;
-using wikiService.ModelViewContract;
+using wikiService.Models.ModelViewContract;
+
 
 namespace wikiService.Dao
 {

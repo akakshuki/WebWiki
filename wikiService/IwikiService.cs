@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.Web;
+using System.Collections.Generic;
 using System.ServiceModel;
-using System.Text;
-using wikiService.EF;
 using wikiService.Models.ModelViewContract;
-using wikiService.ModelViewContract;
+
 
 namespace wikiService
 {
@@ -45,6 +43,30 @@ namespace wikiService
         #endregion
 
 
+        #region Product
+        [OperationContract(Name = "DanhSachTatCaBaiViet")]
+        IEnumerable<ProductViewContract> ListAllProduct();
+        [OperationContract(Name = "DanhSachTatCaBaiVietDaXem")]
+        IEnumerable<ProductViewContract> ListAllProductSeen();
+        [OperationContract(Name = "DanhSachTatCaBaiVietChuaXem")]
+        IEnumerable<ProductViewContract> ListAllProductUnseen();
 
+
+        [OperationContract(Name = "KiemTraTieuDeDaTonTai")]
+        bool CheckTitleExist(string title);
+        [OperationContract(Name = "TaoBaiVietMoi")]
+        bool CreateNewProduct(ProductViewContract product);
+        [OperationContract(Name = "CapNhatBaiViet")]
+        bool EditProduct(ProductViewContract product);
+        [OperationContract(Name = "XoaBaiViet")]
+        bool DeleteProduct(int id);
+
+        #endregion
+
+        #region UpdateCommnent
+
+        
+
+        #endregion
     }
 }

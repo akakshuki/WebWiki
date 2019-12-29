@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6d765b0d-8219-44b5-b1bf-1cf8f578b702" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="db85a0e7-b0eb-4229-86fb-59158b2ac8f5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,9 +9,7 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -24,12 +22,11 @@
     <MetadataSource Address="http://localhost:60198/wikiService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="wikiService2.xsd" MetadataType="Schema" ID="a18feb3e-ebde-4098-a540-0432eddb5093" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd0" />
-    <MetadataFile FileName="wikiService.disco" MetadataType="Disco" ID="4027303d-0031-438e-ba20-6743e5119126" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?disco" />
-    <MetadataFile FileName="wikiService.xsd" MetadataType="Schema" ID="e9046406-2f9b-4c62-8be9-5d4da064326e" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd2" />
-    <MetadataFile FileName="wikiService3.xsd" MetadataType="Schema" ID="d17aca05-2847-4c9e-884b-4683296fe206" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd3" />
-    <MetadataFile FileName="wikiService.wsdl" MetadataType="Wsdl" ID="6158fe7e-1913-4f3f-81b9-ed366a2bd78c" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?wsdl" />
-    <MetadataFile FileName="wikiService1.xsd" MetadataType="Schema" ID="eb710177-cd34-4d3c-8113-b6a0b41a0efd" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="wikiService.disco" MetadataType="Disco" ID="cd127e61-7a44-4cc2-afb3-69760a4fae8e" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?disco" />
+    <MetadataFile FileName="wikiService.wsdl" MetadataType="Wsdl" ID="54df35c9-c502-48d5-a646-54fd86719f31" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?wsdl" />
+    <MetadataFile FileName="wikiService.xsd" MetadataType="Schema" ID="e4089a75-468b-46ba-8283-bd8631b73245" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="wikiService1.xsd" MetadataType="Schema" ID="bdd7f672-4560-4336-aad7-65e1e4b9e5a0" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="wikiService2.xsd" MetadataType="Schema" ID="de24f395-4e34-4ebd-b952-c87b5bc1c54f" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
