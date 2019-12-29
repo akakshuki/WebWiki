@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WikiManageWeb.Dao;
 
 namespace WikiManageWeb.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         // GET: Admin/Product
         public ActionResult Index()
@@ -23,6 +24,8 @@ namespace WikiManageWeb.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
+            ViewBag.ListCategory = new CategoryDao().ListCate();  
+
             return View();
         }
 

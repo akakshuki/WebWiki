@@ -1,0 +1,72 @@
+﻿@model WikiManageWeb.Models.ModelsView.ProductMv
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+
+@section jsFooter
+{
+
+
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Acess/vendor/ckeditor/config.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.replace('Content',
+            {
+                customConfig: '/Areas/Admin/Acess/vendor/ckeditor/config.js'
+            });
+    </script>
+
+}
+
+@using (Html.BeginForm("Create", "Product", new { @class = "container-fluid" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thêm mới nội dung</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container-fluid row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mb-5">
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(x => x.CateId, new SelectList(ViewBag.ListCategory, "ID", "Name"), "Chọn danh mục", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CateId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="form-group mb-5">
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control", @id = "Content" } })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <input type="file" />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-dark" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
