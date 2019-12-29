@@ -187,7 +187,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Acess\vendor\ckeditor\config.js" />
     <Content Include="Acess\css\sb-admin-2.css" />
     <Content Include="Acess\css\sb-admin-2.min.css" />
     <Content Include="Acess\css\simple-sidebar.css" />
@@ -1787,7 +1786,6 @@
     <Content Include="Areas\Admin\Acess\vendor\chart.js\Chart.bundle.min.js" />
     <Content Include="Areas\Admin\Acess\vendor\chart.js\Chart.js" />
     <Content Include="Areas\Admin\Acess\vendor\chart.js\Chart.min.js" />
-    <Content Include="Areas\Admin\Acess\vendor\ckeditor\config.js" />
     <Content Include="Areas\Admin\Acess\vendor\datatables\dataTables.bootstrap4.css" />
     <Content Include="Areas\Admin\Acess\vendor\datatables\dataTables.bootstrap4.js" />
     <Content Include="Areas\Admin\Acess\vendor\datatables\dataTables.bootstrap4.min.css" />
