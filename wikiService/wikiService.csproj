@@ -87,10 +87,12 @@
   <ItemGroup>
     <Compile Include="Business\CategoryBus.cs" />
     <Compile Include="Business\LoginBus.cs" />
+    <Compile Include="Business\ProductBus.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Category.cs">
       <DependentUpon>wikiModel.tt</DependentUpon>

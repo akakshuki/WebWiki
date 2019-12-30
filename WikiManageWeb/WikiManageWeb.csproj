@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Dao\ProductDao.cs" />
     <Compile Include="Connected Services\WikiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3483,13 +3484,10 @@
     <Content Include="Connected Services\WikiService\WikiManageWeb.WikiService.TaiKhoan.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\ProductMvs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductMvs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductMvs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductMvs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductMvs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <None Include="Connected Services\WikiService\wikiService.disco" />
     <None Include="Connected Services\WikiService\configuration91.svcinfo" />
     <None Include="Connected Services\WikiService\configuration.svcinfo" />

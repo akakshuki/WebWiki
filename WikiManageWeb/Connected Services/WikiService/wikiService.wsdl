@@ -97,6 +97,18 @@
   <wsdl:message name="DichVuWiki_TaoBaiVietMoi_OutputMessage">
     <wsdl:part name="parameters" element="tns:TaoBaiVietMoiResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_ChiTietSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChiTietSanPham" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ChiTietSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChiTietSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_SuaBaiViet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuaBaiViet" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_SuaBaiViet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuaBaiVietResponse" />
+  </wsdl:message>
   <wsdl:message name="DichVuWiki_CapNhatBaiViet_InputMessage">
     <wsdl:part name="parameters" element="tns:CapNhatBaiViet" />
   </wsdl:message>
@@ -169,6 +181,14 @@
     <wsdl:operation name="TaoBaiVietMoi">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/TaoBaiVietMoi" message="tns:DichVuWiki_TaoBaiVietMoi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/TaoBaiVietMoiResponse" message="tns:DichVuWiki_TaoBaiVietMoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChiTietSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ChiTietSanPham" message="tns:DichVuWiki_ChiTietSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ChiTietSanPhamResponse" message="tns:DichVuWiki_ChiTietSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuaBaiViet">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/SuaBaiViet" message="tns:DichVuWiki_SuaBaiViet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/SuaBaiVietResponse" message="tns:DichVuWiki_SuaBaiViet_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CapNhatBaiViet">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/CapNhatBaiViet" message="tns:DichVuWiki_CapNhatBaiViet_InputMessage" />
@@ -309,6 +329,24 @@
     </wsdl:operation>
     <wsdl:operation name="TaoBaiVietMoi">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/TaoBaiVietMoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChiTietSanPham">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/ChiTietSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuaBaiViet">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/SuaBaiViet" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

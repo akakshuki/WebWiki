@@ -56,8 +56,12 @@ namespace wikiService
         bool CheckTitleExist(string title);
         [OperationContract(Name = "TaoBaiVietMoi")]
         bool CreateNewProduct(ProductViewContract product);
-        [OperationContract(Name = "CapNhatBaiViet")]
+        [OperationContract(Name = "ChiTietSanPham")]
+        ProductViewContract DetaiContract(int id);
+        [OperationContract(Name = "SuaBaiViet")]
         bool EditProduct(ProductViewContract product);
+        [OperationContract(Name = "CapNhatBaiViet")]
+        bool UpdateProduct(ProductViewContract product);
         [OperationContract(Name = "XoaBaiViet")]
         bool DeleteProduct(int id);
 

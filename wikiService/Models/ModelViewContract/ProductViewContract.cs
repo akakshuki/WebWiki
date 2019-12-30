@@ -20,10 +20,14 @@ namespace wikiService.Models.ModelViewContract
         public DateTime DateCreate { get; set; }
         [DataMember(Name = "MaNguoiDung")]
         public int UserId { get; set; }
+        [DataMember(Name = "TenNguoiDung")]
+        public string UserName { get; set; }
         [DataMember(Name = "NguoiDung")]
-        public UserContract user { get; set; }
+        public UserContract User { get; set; }
         [DataMember(Name = "MaDanhMuc")]
         public int CateId { get; set; }
+        [DataMember(Name = "TenDanhMuc")]
+        public string CategoryName { get; set; }
         [DataMember(Name = "DanhMuc")]
         public CategoryContract Category { get; set; }
         [DataMember(Name = "TrangThai")]

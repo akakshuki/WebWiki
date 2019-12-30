@@ -92,5 +92,10 @@ namespace wikiService.Dao
              
 
         }
+
+        public UserContract GetUserDetailById(int argIdUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

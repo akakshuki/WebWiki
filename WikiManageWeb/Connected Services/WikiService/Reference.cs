@@ -236,6 +236,12 @@ namespace WikiManageWeb.WikiService {
         private string NoiDungField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenDanhMucField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenNguoiDungField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TieuDeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -364,6 +370,32 @@ namespace WikiManageWeb.WikiService {
                 if ((object.ReferenceEquals(this.NoiDungField, value) != true)) {
                     this.NoiDungField = value;
                     this.RaisePropertyChanged("NoiDung");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenDanhMuc {
+            get {
+                return this.TenDanhMucField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenDanhMucField, value) != true)) {
+                    this.TenDanhMucField = value;
+                    this.RaisePropertyChanged("TenDanhMuc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenNguoiDung {
+            get {
+                return this.TenNguoiDungField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenNguoiDungField, value) != true)) {
+                    this.TenNguoiDungField = value;
+                    this.RaisePropertyChanged("TenNguoiDung");
                 }
             }
         }
@@ -623,6 +655,18 @@ namespace WikiManageWeb.WikiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/TaoBaiVietMoi", ReplyAction="http://tempuri.org/DichVuWiki/TaoBaiVietMoiResponse")]
         System.Threading.Tasks.Task<bool> TaoBaiVietMoiAsync(WikiManageWeb.WikiService.BaiViet product);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ChiTietSanPham", ReplyAction="http://tempuri.org/DichVuWiki/ChiTietSanPhamResponse")]
+        WikiManageWeb.WikiService.BaiViet ChiTietSanPham(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ChiTietSanPham", ReplyAction="http://tempuri.org/DichVuWiki/ChiTietSanPhamResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet> ChiTietSanPhamAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/SuaBaiViet", ReplyAction="http://tempuri.org/DichVuWiki/SuaBaiVietResponse")]
+        bool SuaBaiViet(WikiManageWeb.WikiService.BaiViet product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/SuaBaiViet", ReplyAction="http://tempuri.org/DichVuWiki/SuaBaiVietResponse")]
+        System.Threading.Tasks.Task<bool> SuaBaiVietAsync(WikiManageWeb.WikiService.BaiViet product);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/CapNhatBaiViet", ReplyAction="http://tempuri.org/DichVuWiki/CapNhatBaiVietResponse")]
         bool CapNhatBaiViet(WikiManageWeb.WikiService.BaiViet product);
         
@@ -781,6 +825,22 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> TaoBaiVietMoiAsync(WikiManageWeb.WikiService.BaiViet product) {
             return base.Channel.TaoBaiVietMoiAsync(product);
+        }
+        
+        public WikiManageWeb.WikiService.BaiViet ChiTietSanPham(int id) {
+            return base.Channel.ChiTietSanPham(id);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet> ChiTietSanPhamAsync(int id) {
+            return base.Channel.ChiTietSanPhamAsync(id);
+        }
+        
+        public bool SuaBaiViet(WikiManageWeb.WikiService.BaiViet product) {
+            return base.Channel.SuaBaiViet(product);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SuaBaiVietAsync(WikiManageWeb.WikiService.BaiViet product) {
+            return base.Channel.SuaBaiVietAsync(product);
         }
         
         public bool CapNhatBaiViet(WikiManageWeb.WikiService.BaiViet product) {

@@ -5,18 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>ProductMv</h4>
+    <h4>Chi tiết bài viết</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.user.UserName)
+            @Html.DisplayNameFor(model => model.UserName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.user.UserName)
+            @Html.DisplayFor(model => model.UserName)
         </dd>
 
         <dt>
@@ -32,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Content)
+            @(new HtmlString(@Model.Content))
         </dd>
 
         <dt>
@@ -44,11 +43,10 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CateId)
+            @Html.DisplayNameFor(model => model.CateName)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.CateId)
+            @Html.DisplayFor(model => model.CateName)
         </dd>
 
         <dt>

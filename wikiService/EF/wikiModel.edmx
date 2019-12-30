@@ -18,7 +18,7 @@
           </Key>
           <Property Name="idEI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idInfo" Type="int" Nullable="false" />
-          <Property Name="contentEdit" Type="ntext" Nullable="false" />
+          <Property Name="contentEdit" Type="nvarchar(max)" Nullable="false" />
           <Property Name="dayCreateEI" Type="datetime" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
         </EntityType>
@@ -28,7 +28,7 @@
           </Key>
           <Property Name="idInfor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titleInfo" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="contentInfo" Type="ntext" Nullable="false" />
+          <Property Name="contentInfo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="dayCreateInfo" Type="datetime" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
           <Property Name="idCate" Type="int" Nullable="false" />
@@ -287,7 +287,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

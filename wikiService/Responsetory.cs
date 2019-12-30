@@ -12,7 +12,7 @@ namespace wikiService
 {
     public class Responsetory
     {
-       
+
         #region user
 
         public int LoginUser(UserContract userCaContract)
@@ -59,7 +59,7 @@ namespace wikiService
 
         public bool EditCategory(CategoryContract category)
         {
-            return  new CategoryBus().EditCategory(category);
+            return new CategoryBus().EditCategory(category);
         }
 
         public bool DeleteCategory(int id)
@@ -69,6 +69,38 @@ namespace wikiService
         public bool CreateCategory(CategoryContract category)
         {
             return new CategoryBus().CreateCategory(category);
+        }
+        #endregion
+        
+        #region product
+
+        public IEnumerable<ProductViewContract> GetAllListProduct()
+        {
+            return new ProductBus().getAllListProduct();
+        }
+
+        public bool checkProductTitleExist(string title)
+        {
+            return new ProductBus().CheckProductTitleExist(title);
+        }
+
+        public bool CreateNewProduct(ProductViewContract product)
+        {
+            return new ProductBus().CreateProduct(product);
+        }
+
+        public ProductViewContract GetDetailProductById(int id)
+        {
+            return new ProductBus().GetDetailProductById(id);
+        }
+        public bool DeleteProduct(int id)
+        {
+            return new ProductBus().DeleteProduct(id);
+        }
+
+        public bool EditProduct(ProductViewContract product)
+        {
+            return new ProductBus().EditProduct(product);
         }
         #endregion
 

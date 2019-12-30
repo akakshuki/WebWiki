@@ -19,7 +19,7 @@ namespace wikiService
 
         public IEnumerable<ProductViewContract> ListAllProduct()
         {
-            throw new NotImplementedException();
+            return new Responsetory().GetAllListProduct();
         }
 
         public IEnumerable<ProductViewContract> ListAllProductSeen()
@@ -34,22 +34,33 @@ namespace wikiService
 
         public bool CheckTitleExist(string title)
         {
-            throw new NotImplementedException();
+            return new Responsetory().checkProductTitleExist(title);
         }
 
         public bool CreateNewProduct(ProductViewContract product)
         {
-            throw new NotImplementedException();
+            return  new Responsetory().CreateNewProduct(product);
         }
 
+        public ProductViewContract DetaiContract(int id)
+        {
+            return new Responsetory().GetDetailProductById(id);
+        }
+
+
         public bool EditProduct(ProductViewContract product)
+        {
+            return  new Responsetory().EditProduct(product);
+        }
+
+        public bool UpdateProduct(ProductViewContract product)
         {
             throw new NotImplementedException();
         }
 
         public bool DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+           return new Responsetory().DeleteProduct(id);
         }
 
         #endregion

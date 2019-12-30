@@ -19,9 +19,13 @@ namespace WikiManageWeb.Models.ModelsView
         public string Content { get; set; }
         public DateTime DateCreate { get; set; }
         public int UserId { get; set; }
+        [Display(Name = "Tác giả")]
+        public string UserName { get; set; }
         public UserMv user { get; set; }
         [Required(ErrorMessage = "Hãy chọn Danh mục")]
         public int CateId { get; set; }
+        [Display(Name = "Tên danh mục")]
+        public string CateName { get; set; }
         public CategoryMv Category { get; set; }
         public bool hideInfo { get; set; }
 

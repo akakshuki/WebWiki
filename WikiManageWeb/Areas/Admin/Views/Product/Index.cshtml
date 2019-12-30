@@ -5,27 +5,33 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Bài viết</h2>
+<hr />
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@if ((TempData["SuccessMes"] != null))
+{
+    <div class="alert alert-success px-5 mt-5"><span class="text-center text-dark font-weight-bold">@TempData["SuccessMes"]</span></div>
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success px-5 mt-5"><span class="text-center text-dark font-weight-bold">@TempData["Message"]</span></div>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.user.UserName)
+            @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DateCreate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CateId)
+            @Html.DisplayNameFor(model => model.CateName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.hideInfo)
@@ -33,32 +39,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hideInfo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hideInfo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
