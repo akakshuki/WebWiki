@@ -15,5 +15,7 @@ namespace WikiManageWeb.Controllers
             
             return View();
         }
+
+       
     }
 }

@@ -149,6 +149,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Dao\CategoryDao.cs" />
     <Compile Include="Areas\Admin\Dao\UserDao.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Data\WikiManageWebContext.cs" />
     <Compile Include="DynamicData\FieldTemplates\mainAdminStyle.ascx.cs">
       <DependentUpon>mainAdminStyle.ascx</DependentUpon>
@@ -3474,7 +3475,6 @@
     <Content Include="Acess\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
     <Content Include="Acess\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
     <Content Include="Acess\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
-    <Content Include="ClassDiagram1.cd" />
     <Content Include="Connected Services\WikiService\WikiManageWeb.WikiService.BaiViet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -3503,6 +3503,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="DynamicData\FieldTemplates\mainAdminStyle.ascx" />
     <Content Include="DynamicData\FieldTemplates\mainAdminStyle_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\mainStyle.ascx" />
@@ -4010,6 +4011,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Shared\HeaderBar.cshtml" />
+    <Content Include="Views\Shared\NavigationBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Acess\IMG\" />
@@ -4017,6 +4020,7 @@
     <Folder Include="Areas\Admin\Acess\img\ImageContent\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Dao\" />
+    <Folder Include="Views\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
