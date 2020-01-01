@@ -134,7 +134,9 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Areas\Admin\Dao\ProductDao.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Connected Services\WikiService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,8 +149,8 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Dao\CategoryDao.cs" />
-    <Compile Include="Areas\Admin\Dao\UserDao.cs" />
+    <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Data\WikiManageWebContext.cs" />
     <Compile Include="DynamicData\FieldTemplates\mainAdminStyle.ascx.cs">
@@ -3503,6 +3505,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\style.css" />
     <Content Include="DynamicData\FieldTemplates\mainAdminStyle.ascx" />
     <Content Include="DynamicData\FieldTemplates\mainAdminStyle_Edit.ascx" />
@@ -3862,6 +3865,7 @@
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\ckeditor\vendor\promise.js" />
     <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\Controller\ProductListController.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -4013,13 +4017,19 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Shared\HeaderBar.cshtml" />
     <Content Include="Views\Shared\NavigationBar.cshtml" />
+    <Content Include="Views\Home\ListProductByCategory.cshtml" />
+    <Content Include="Views\Home\CreatNenContent.cshtml" />
+    <Content Include="Views\Home\ContentProduct.cshtml" />
+    <Content Include="Views\Home\InforUser.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Developer\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Acess\IMG\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Acess\img\ImageContent\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Dao\" />
     <Folder Include="Views\Menu\" />
   </ItemGroup>
   <ItemGroup>

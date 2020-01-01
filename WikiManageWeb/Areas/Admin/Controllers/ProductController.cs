@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WikiManageWeb.Areas.Admin.Dao;
 using WikiManageWeb.Common;
 using WikiManageWeb.Dao;
 using WikiManageWeb.Models.ModelsView;
@@ -98,26 +97,17 @@ namespace WikiManageWeb.Areas.Admin.Controllers
             {
                 try
                 {
-                    if (!new ProductDao().ChecKTileExist(product.Title))
-                    {
-                        if (new ProductDao().EditProduct(product))
-                        {
-                            TempData["SuccessMes"] = "Sửa thành công";
-                            return RedirectToAction("Index");
-                        }
-                        else
-                        {
-                            ViewBag.Message = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
-                            return View(doto);
-                        }
 
+                    if (new ProductDao().EditProduct(product))
+                    {
+                        TempData["SuccessMes"] = "Sửa thành công";
+                        return RedirectToAction("Index");
                     }
                     else
                     {
-                        ViewBag.Message = "Tiêu đề này đã có sẵn từ trước vui lòng kiểm tra lại";
+                        ViewBag.Message = "Hệ thống gặp sự cố, hãy thử lại lần nữa";
                         return View(doto);
                     }
-
                 }
                 catch (Exception e)
                 {

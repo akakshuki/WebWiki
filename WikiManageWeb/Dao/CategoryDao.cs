@@ -22,9 +22,22 @@ namespace WikiManageWeb.Dao
             var data = cl.DanhSachDanhMuc().Select(x=> new CategoryMv
             {
                 ID = x.MaDanhMuc,
-                Name = x.TenDanhMuc
+                Name = x.TenDanhMuc,
+               
 
             }).OrderByDescending(x=>x.ID).ToList();
+            return data;
+        }
+
+        public List<CategoryMv> ListCateClient()
+        {
+            var data = cl.DanhSachDanhMuc().Select(x => new CategoryMv
+            {
+                ID = x.MaDanhMuc,
+                Name = x.TenDanhMuc,
+                ProductCount = x.SoSanpham
+
+            }).OrderByDescending(x => x.ProductCount).ToList();
             return data;
         }
 

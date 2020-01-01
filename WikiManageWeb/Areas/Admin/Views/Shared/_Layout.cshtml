@@ -11,12 +11,12 @@
 </head>
 <body>
 
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex pt-1" id="wrapper">
 
         <!-- Sidebar -->
         <div class="bg-light border-right " id="sidebar-wrapper">
             <a id="homeLogo" class="text-center mb-5" href="@Url.Action("index","Home")">
-                <div class="sidebar-heading "><h1 id="logoAdmin">W</h1></div>
+                <div class="sidebar-heading "><h1  onclick="window.location.href = '/'" id="logoAdmin">W</h1></div>
                 <span class="text-center mx-4">Wikipiamini</span>
             </a>
             <div class="list-group list-group-flush">
@@ -44,9 +44,10 @@
     <footer class="text-center">
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
+    
 
 
-    @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script>

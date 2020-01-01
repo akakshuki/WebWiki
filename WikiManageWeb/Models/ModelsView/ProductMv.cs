@@ -28,8 +28,8 @@ namespace WikiManageWeb.Models.ModelsView
         public string CateName { get; set; }
         public CategoryMv Category { get; set; }
         public bool hideInfo { get; set; }
-
-        public EditProductMv EditProductViewContract { get; set; }
-        public List<EditProductMv> EditProductViewContracts { get; set; }
+        public EditProductMv EditProductView { get; set; }
+        public int EditProductViewCount { get; set; }
+        public List<EditProductMv> EditProductViews { get; set; }
     }
 }

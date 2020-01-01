@@ -16,7 +16,8 @@ namespace wikiService.Business
                 .Select(x=> new CategoryContract
                 {
                     ID =x.idCate,
-                    Name = x.nameCate
+                    Name = x.nameCate,
+                    ProductCount = x.Information.Count()
                 }).ToList();
             return data;
         }

@@ -105,6 +105,14 @@ namespace wikiService
         #endregion
 
 
+        public IEnumerable<ProductViewContract> GetAllLisProuctByCate(int idCate)
+        {
+            return  new ProductBus().GetListProductByCateId(idCate );
+        }
 
+        public IEnumerable<ProductViewContract> GetProductListClientView()
+        { 
+            return new ProductBus().GetListProductClientView();
+        }
     }
 }

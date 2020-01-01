@@ -20,6 +20,7 @@
   <xs:complexType name="DanhMuc">
     <xs:sequence>
       <xs:element minOccurs="0" name="MaDanhMuc" type="xs:int" />
+      <xs:element minOccurs="0" name="SoSanpham" type="xs:int" />
       <xs:element minOccurs="0" name="TenDanhMuc" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -41,6 +42,7 @@
       <xs:element minOccurs="0" name="NgayTao" type="xs:dateTime" />
       <xs:element minOccurs="0" name="NguoiDung" nillable="true" type="tns:TaiKhoan" />
       <xs:element minOccurs="0" name="NoiDung" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoBinhLuan" type="xs:int" />
       <xs:element minOccurs="0" name="TenDanhMuc" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TenNguoiDung" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TieuDe" nillable="true" type="xs:string" />

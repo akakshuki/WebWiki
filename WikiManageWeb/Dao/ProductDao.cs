@@ -5,7 +5,7 @@ using System.Web;
 using WikiManageWeb.Models.ModelsView;
 using WikiManageWeb.WikiService;
 
-namespace WikiManageWeb.Areas.Admin.Dao
+namespace WikiManageWeb.Dao
 {
     public class ProductDao
     {
@@ -13,12 +13,12 @@ namespace WikiManageWeb.Areas.Admin.Dao
 
         public ProductDao()
         {
-            cl= new DichVuWikiClient();
+            cl = new DichVuWikiClient();
         }
 
         public List<ProductMv> GetAlListProducts()
         {
-            return  cl.DanhSachTatCaBaiViet().OrderByDescending(x=>x.NgayTao).Select(x => new ProductMv
+            return cl.DanhSachTatCaBaiViet().OrderByDescending(x => x.NgayTao).Select(x => new ProductMv
             {
                 ID = x.MaBaiViet,
                 Title = x.TieuDe,
@@ -32,6 +32,51 @@ namespace WikiManageWeb.Areas.Admin.Dao
             }).ToList();
         }
 
+        public List<ProductMv> GetListProductClientView()
+        {
+            var data = cl.DanhSachBaiVietNguoiDung().Select(x => new ProductMv()
+            {
+                ID = x.MaBaiViet,
+                Title = x.TieuDe,
+                user = new UserMv()
+                {
+                    ID = x.MaNguoiDung,
+                    UserName = x.NguoiDung.TenTaiKhoan
+                },
+                Category = new CategoryMv()
+                {
+                    ID = x.DanhMuc.MaDanhMuc,
+                    Name = x.DanhMuc.TenDanhMuc
+                },
+                DateCreate = x.NgayTao,
+                EditProductViewCount = x.SoBinhLuan
+                
+            }).ToList();
+            return data;
+        }
+        public List<ProductMv> GetListProductClientView(int CateId)
+        {
+                var data = cl.DanhSachSanPhamTheoDanhMuc(CateId).Select(x => new ProductMv()
+            {
+                ID = x.MaBaiViet,
+                Title = x.TieuDe,
+                user = new UserMv()
+                {
+                    ID = x.MaNguoiDung,
+                    UserName = x.NguoiDung.TenTaiKhoan
+                },
+                Category = new CategoryMv()
+                {
+                    ID = x.DanhMuc.MaDanhMuc,
+                    Name = x.DanhMuc.TenDanhMuc
+                },
+                DateCreate = x.NgayTao,
+                EditProductViewCount = x.SoBinhLuan
+
+            }).ToList();
+            return data;
+        }
+
         public bool ChecKTileExist(string title)
         {
             return cl.KiemTraTieuDeDaTonTai(title);
@@ -39,7 +84,7 @@ namespace WikiManageWeb.Areas.Admin.Dao
 
         public bool CreateNewProduct(ProductMv product)
         {
-            
+
             var data = new BaiViet()
             {
                 TieuDe = product.Title,
@@ -70,7 +115,7 @@ namespace WikiManageWeb.Areas.Admin.Dao
 
         public bool EditProduct(ProductMv product)
         {
-            return cl.SuaBaiViet( new BaiViet()
+            return cl.SuaBaiViet(new BaiViet()
             {
                 MaBaiViet = product.ID,
                 TieuDe = product.Title,
@@ -83,5 +128,7 @@ namespace WikiManageWeb.Areas.Admin.Dao
         {
             return cl.XoaBaiViet(id);
         }
+
+    
     }
 }

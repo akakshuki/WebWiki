@@ -175,6 +175,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DanhSachBaiVietNguoiDung">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachBaiVietNguoiDungResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachBaiVietNguoiDungResult" nillable="true" type="q12:ArrayOfBaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachSanPhamTheoDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCate" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachSanPhamTheoDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="DanhSachSanPhamTheoDanhMucResult" nillable="true" type="q13:ArrayOfBaiViet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="KiemTraTieuDeDaTonTai">
     <xs:complexType>
       <xs:sequence>
@@ -192,7 +218,7 @@
   <xs:element name="TaoBaiVietMoi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q12:BaiViet" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q14:BaiViet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -213,14 +239,14 @@
   <xs:element name="ChiTietSanPhamResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="ChiTietSanPhamResult" nillable="true" type="q13:BaiViet" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="ChiTietSanPhamResult" nillable="true" type="q15:BaiViet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SuaBaiViet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q14:BaiViet" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q16:BaiViet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -234,7 +260,7 @@
   <xs:element name="CapNhatBaiViet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q15:BaiViet" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" minOccurs="0" name="product" nillable="true" type="q17:BaiViet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

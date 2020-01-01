@@ -93,9 +93,15 @@ namespace wikiService.Dao
 
         }
 
+
         public UserContract GetUserDetailById(int argIdUser)
         {
-            throw new NotImplementedException();
+            var dc = db.Users.Find(argIdUser);
+            return  new UserContract()
+            {
+                ID = dc.idUser,
+                UserName = dc.nameUser
+            };
         }
     }
 }

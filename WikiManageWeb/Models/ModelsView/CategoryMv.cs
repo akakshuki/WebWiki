@@ -13,5 +13,6 @@ namespace WikiManageWeb.Models.ModelsView
         [Display(Name = "Tên danh mục")]
         [Required(ErrorMessage = "Điền đủ thông tin ")]
         public string Name { get; set; }
+        public int ProductCount { get; set; }
     }
 }

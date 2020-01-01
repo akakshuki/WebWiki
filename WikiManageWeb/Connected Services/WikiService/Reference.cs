@@ -151,6 +151,9 @@ namespace WikiManageWeb.WikiService {
         private int MaDanhMucField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoSanphamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TenDanhMucField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -172,6 +175,19 @@ namespace WikiManageWeb.WikiService {
                 if ((this.MaDanhMucField.Equals(value) != true)) {
                     this.MaDanhMucField = value;
                     this.RaisePropertyChanged("MaDanhMuc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoSanpham {
+            get {
+                return this.SoSanphamField;
+            }
+            set {
+                if ((this.SoSanphamField.Equals(value) != true)) {
+                    this.SoSanphamField = value;
+                    this.RaisePropertyChanged("SoSanpham");
                 }
             }
         }
@@ -234,6 +250,9 @@ namespace WikiManageWeb.WikiService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NoiDungField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoBinhLuanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TenDanhMucField;
@@ -370,6 +389,19 @@ namespace WikiManageWeb.WikiService {
                 if ((object.ReferenceEquals(this.NoiDungField, value) != true)) {
                     this.NoiDungField = value;
                     this.RaisePropertyChanged("NoiDung");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoBinhLuan {
+            get {
+                return this.SoBinhLuanField;
+            }
+            set {
+                if ((this.SoBinhLuanField.Equals(value) != true)) {
+                    this.SoBinhLuanField = value;
+                    this.RaisePropertyChanged("SoBinhLuan");
                 }
             }
         }
@@ -643,6 +675,18 @@ namespace WikiManageWeb.WikiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachTatCaBaiVietChuaXem", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachTatCaBaiVietChuaXemResponse")]
         System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachTatCaBaiVietChuaXemAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachBaiVietNguoiDung", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachBaiVietNguoiDungResponse")]
+        WikiManageWeb.WikiService.BaiViet[] DanhSachBaiVietNguoiDung();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachBaiVietNguoiDung", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachBaiVietNguoiDungResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachBaiVietNguoiDungAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachSanPhamTheoDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachSanPhamTheoDanhMucResponse")]
+        WikiManageWeb.WikiService.BaiViet[] DanhSachSanPhamTheoDanhMuc(int idCate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachSanPhamTheoDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachSanPhamTheoDanhMucResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachSanPhamTheoDanhMucAsync(int idCate);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraTieuDeDaTonTai", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraTieuDeDaTonTaiResponse")]
         bool KiemTraTieuDeDaTonTai(string title);
         
@@ -809,6 +853,22 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachTatCaBaiVietChuaXemAsync() {
             return base.Channel.DanhSachTatCaBaiVietChuaXemAsync();
+        }
+        
+        public WikiManageWeb.WikiService.BaiViet[] DanhSachBaiVietNguoiDung() {
+            return base.Channel.DanhSachBaiVietNguoiDung();
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachBaiVietNguoiDungAsync() {
+            return base.Channel.DanhSachBaiVietNguoiDungAsync();
+        }
+        
+        public WikiManageWeb.WikiService.BaiViet[] DanhSachSanPhamTheoDanhMuc(int idCate) {
+            return base.Channel.DanhSachSanPhamTheoDanhMuc(idCate);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> DanhSachSanPhamTheoDanhMucAsync(int idCate) {
+            return base.Channel.DanhSachSanPhamTheoDanhMucAsync(idCate);
         }
         
         public bool KiemTraTieuDeDaTonTai(string title) {

@@ -6,27 +6,29 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Acess/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        @{
-            Html.RenderAction("HeaderBar", "Menu");
-        }
-    </header>
+    
     <div class="d-flex pt-1" id="wrapper">
 
         @{Html.RenderAction("NavigationBar", "Menu");}
+        
 
         <div id="page-content-wrapper">
+            <header>
+                @{
+                    Html.RenderAction("HeaderBar", "Menu");
+                }
+            </header>
             <p id="menu-toggle" class="font-weight-bold"> <i class="fas fa-arrow-right"></i></p>
             <!-- content -->
-            <div class="container">
-                <div class="content">
+            <div class="container mb-lg-5">
+                
                     @RenderBody()
                     <hr />
-                </div>
+                
             </div>
         </div>
     </div>

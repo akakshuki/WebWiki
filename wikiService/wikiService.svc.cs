@@ -32,6 +32,16 @@ namespace wikiService
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ProductViewContract> ListAllProductClientView()
+        {
+            return  new Responsetory().GetProductListClientView();
+        }
+
+        public IEnumerable<ProductViewContract> ListAllProductByCategory(int idCate)
+        {
+            return new Responsetory().GetAllLisProuctByCate(idCate);
+        }
+
         public bool CheckTitleExist(string title)
         {
             return new Responsetory().checkProductTitleExist(title);

@@ -113,5 +113,18 @@ namespace wikiService.Dao
                 return false;
             }
         }
+
+     
+
+        public IEnumerable<Information> GetProductsClientByCateId(int idCate)
+        {
+          var data = db.Information.Where(x => x.idCate == idCate && x.hideInfo).ToList();
+            return data;
+        }
+        public IEnumerable<Information> GetProductsClientView()
+        {
+            var data = db.Information.Where(x=>x.hideInfo).ToList();
+            return data;
+        }
     }
 }

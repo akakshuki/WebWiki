@@ -50,7 +50,10 @@ namespace wikiService
         IEnumerable<ProductViewContract> ListAllProductSeen();
         [OperationContract(Name = "DanhSachTatCaBaiVietChuaXem")]
         IEnumerable<ProductViewContract> ListAllProductUnseen();
-
+        [OperationContract(Name = "DanhSachBaiVietNguoiDung")]
+        IEnumerable<ProductViewContract> ListAllProductClientView();
+        [OperationContract(Name = "DanhSachSanPhamTheoDanhMuc")]
+        IEnumerable<ProductViewContract> ListAllProductByCategory(int idCate);
 
         [OperationContract(Name = "KiemTraTieuDeDaTonTai")]
         bool CheckTitleExist(string title);

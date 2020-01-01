@@ -1,7 +1,45 @@
-﻿
+﻿@model List<WikiManageWeb.Models.ModelsView.ProductMv>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-md-12">
+    <h3 class="font-weight-bold">
+        Danh Sách bài viết
+    </h3>
 
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-12 border-bottom">
+            <div class="col-md-12 mb-4">
+                <div class="col-md-12">
+                    <span class="text-dark">
+                        <a class="text-dark linkContent" href="@Url.Action("InforUser","Home", new {id = item.UserId})">#@item.user.UserName</a>
+                    </span>
+                    <span class="ml-5 text-muted">
+                        @item.DateCreate
+                    </span>
+                </div>
+                <div class="col-md-12">
+                    <h5 class=" font-weight-bold">
+                        <a class="text-dark linkContent" href="@Url.Action("ContentProduct","Home", new {@item.ID})">@item.Title</a>
+                    </h5>
+                    <span class=" border border-secondary border-circle">
+                        <a class="text-dark linkContent" href="@Url.Action("ListProductByCategory","Home",new {id = item.Category.ID})">
+                            @item.Category.Name
+                        </a>
+                    </span>
+                </div>
+
+                <div class="col-md-12">
+                    <span><small>123213123123123</small></span>
+                    <div class="text-muted"><i class="fas fa-comment"></i> @item.EditProductViewCount</div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

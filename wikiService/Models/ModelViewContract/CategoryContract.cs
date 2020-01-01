@@ -10,7 +10,9 @@ namespace wikiService.Models.ModelViewContract
     public class CategoryContract
     {
         [DataMember (Name = "MaDanhMuc")] public int ID { get; set; }   
-        [DataMember (Name = "TenDanhMuc")] public string Name { get; set; } 
+        [DataMember (Name = "TenDanhMuc")] public string Name { get; set; }
+        [DataMember(Name="SoSanpham")]
+        public int ProductCount { get; set; }
 
     }   
 }

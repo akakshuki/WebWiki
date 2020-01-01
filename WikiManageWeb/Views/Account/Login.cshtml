@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Acess/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container mb-md-5">
+        <div class="sidenav">
+            <div class="login-main-text">
+                <h1 id="logoPage">W</h1>
+                <p>Login or register from here to access.</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="col-md-6 col-sm-12">
+                <div class="login-form">
+                    @using (Html.BeginForm("Login", "Account", new {@class="mb-2"}))
+                    {
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn text-white btn-black mb-4">Login</button>
+
+                    }
+                    @using( Html.BeginForm("Register","Account") ) { <button type="submit" class="btn text-white btn-secondary">Register</button> }
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="text-center">
+    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+</footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+    $('#logoPage').on('click',
+        function() {
+            location.href = '/';
+        });
+    </script>
+</body>
+</html>

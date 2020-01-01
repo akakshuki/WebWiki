@@ -35,6 +35,8 @@ namespace wikiService.Models.ModelViewContract
 
         [DataMember(Name = "BinhLuan")]
         public EditProductViewContract EditProductViewContract { get; set; }
+        [DataMember (Name = "SoBinhLuan")] 
+        public int EditInforCount { get; set; }
         [DataMember(Name = "DanhSachBinhLuan")]
         public IEnumerable<EditProductViewContract> EditProductViewContracts { get; set; }
     }
