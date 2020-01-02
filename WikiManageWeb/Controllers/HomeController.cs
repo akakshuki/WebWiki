@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WikiManageWeb.Dao;
+using WikiManageWeb.Models.ModelsView;
 
 
 namespace WikiManageWeb.Controllers
@@ -38,8 +39,17 @@ namespace WikiManageWeb.Controllers
 
         public ActionResult ContentProduct(int id)
         {
-            return View();
+            var detailProduct = new ProductDao().ContenProduct(id);
+            return View(detailProduct);
 
+        }
+
+        [HttpPost]
+        public ActionResult LetUserComment(EditProductMv editProduct)
+        {
+            
+            var result = new ProductDao().LetUserComment(editProduct);
+            return RedirectToAction("ContentProduct","Home", editProduct.ProductId);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WikiManageWeb.Areas.Admin.Controllers
     public class HomeController : BaseController
     {
         // GET: Admin/Home
-        public ActionResult Index()
+        public ActionResult AdminHome()
         {
             return View();
         }

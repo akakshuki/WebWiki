@@ -17,7 +17,7 @@ namespace wikiService.Business
                 {
                     ID =x.idCate,
                     Name = x.nameCate,
-                    ProductCount = x.Information.Count()
+                    ProductCount = x.Information.Where(k=>k.hideInfo).Count()
                 }).ToList();
             return data;
         }

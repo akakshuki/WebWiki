@@ -33,6 +33,11 @@ namespace wikiService
             return new LoginBus().Register(userContract);
         }
 
+        public bool RegisterUser(UserContract userContract)
+        {
+            return new LoginBus().RegisterClient(userContract);
+        }
+
         public bool CheckUserExist(string email)
         {
             return new UserDao().CheckUserExist(email);
@@ -102,17 +107,22 @@ namespace wikiService
         {
             return new ProductBus().EditProduct(product);
         }
-        #endregion
-
-
         public IEnumerable<ProductViewContract> GetAllLisProuctByCate(int idCate)
         {
-            return  new ProductBus().GetListProductByCateId(idCate );
+            return new ProductBus().GetListProductByCateId(idCate);
         }
 
         public IEnumerable<ProductViewContract> GetProductListClientView()
-        { 
+        {
             return new ProductBus().GetListProductClientView();
         }
+        public ProductViewContract GetDetailProductClientById(int id)
+        {
+            return  new ProductBus().getContentById(id);
+        }
+        #endregion
+
+
+
     }
 }

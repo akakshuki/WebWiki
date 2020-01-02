@@ -1,4 +1,5 @@
-﻿@{
+﻿@model WikiManageWeb.Models.ModelsView.UserMv
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -25,35 +26,44 @@
         <div class="main">
             <div class="col-md-6 col-sm-12">
                 <div class="login-form">
-                    @using (Html.BeginForm("Login", "Account", new {@class="mb-2"}))
+                    @using (Html.BeginForm("Login", "Account",IsPost))
                     {
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="text" class="form-control" placeholder="User Name">
+                            <input type="text" class="form-control" name="Email" placeholder="Email Adress">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" name="Password" class="form-control" placeholder="Password">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
+
                         <button type="submit" class="btn text-white btn-black mb-4">Login</button>
 
                     }
-                    @using( Html.BeginForm("Register","Account") ) { <button type="submit" class="btn text-white btn-secondary">Register</button> }
+                    @using (Html.BeginForm("Register", "Account"))
+                    {<button type="submit" class="btn text-white btn-secondary">Register</button>}
                 </div>
             </div>
         </div>
     </div>
-<footer class="text-center">
-    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-</footer>
+    @if (ViewBag.Message != null)
+    {
+        <span class="alert alert-danger font-weight-bold"> @ViewBag.Message</span>
+    }
+    <footer class="text-center">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script>
-    $('#logoPage').on('click',
-        function() {
-            location.href = '/';
-        });
+        $('#logoPage').on('click',
+            function () {
+                location.href = '/';
+            });
+
     </script>
 </body>
 </html>

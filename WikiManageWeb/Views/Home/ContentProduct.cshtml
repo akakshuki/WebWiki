@@ -1,8 +1,62 @@
-﻿
+﻿@using System.Web.UI.WebControls
+@model WikiManageWeb.Models.ModelsView.ProductMv
 @{
     ViewBag.Title = "ContentProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ContentProduct</h2>
+<div class="container">
+    <div id="contentHeader row">
+        <div class="col-md-2">
+            <div>
+                <a class="text-center text-dark font-weight-bold" href=""> #@Model.user.UserName</a>
+            </div>
+            <p>@Model.DateCreate.ToString("MM/dd/yyyy ")</p>
+            <a href="@Url.Action("ListProductByCategory","Home", new {id = Model.Category.ID})"><span class=" border border-circle text-dark border-dark text-center">@Model.Category.Name</span></a>
+        </div>
 
+        <div class="col-md-8 pl-2 text-muted">
+            <i class="fas fa-comment"></i> @Model.EditProductViewCount
+        </div>
+    </div>
+    <hr />
+    <h3>@Model.Title</h3>
+
+    <span class="px-2">
+        @Html.Raw(Model.Content)
+    </span>
+    <hr />
+    <div class="col-md-12">
+        <h4>Bình luận</h4>
+        @if (Model.EditProductViews.Count > 0)
+        {
+            foreach (var item in Model.EditProductViews)
+            {
+                <div class="col-md-12">
+                    <a class="text-center text-dark font-weight-bold mb-3" href="">@item.User.UserName</a>
+                    <span class="mx-5">@item.Content</span>
+                    <span class="text-muted">@item.dayCreateEI</span>
+                </div>
+                <hr />
+            }
+        }
+        else
+        {
+            <span>Chưa có bình luận nào</span>
+        }
+
+        @using (Html.BeginForm("LetUserComment", "Home",FormMethod.Post,new {@class="Col-md-12 mt-2"}))
+        {
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Nội dung Bình luận
+                </label>
+                <input type="hidden" value="@Model.ID" name="ProductId" />
+
+                <textarea style="min-width: 60%" class="form-control" name="Content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Bình luận</Button>
+        }
+    </div>
+
+</div>

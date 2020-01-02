@@ -50,13 +50,14 @@ namespace WikiManageWeb.Dao
                 },
                 DateCreate = x.NgayTao,
                 EditProductViewCount = x.SoBinhLuan
-                
+
             }).ToList();
             return data;
         }
+
         public List<ProductMv> GetListProductClientView(int CateId)
         {
-                var data = cl.DanhSachSanPhamTheoDanhMuc(CateId).Select(x => new ProductMv()
+            var data = cl.DanhSachSanPhamTheoDanhMuc(CateId).Select(x => new ProductMv()
             {
                 ID = x.MaBaiViet,
                 Title = x.TieuDe,
@@ -129,6 +130,53 @@ namespace WikiManageWeb.Dao
             return cl.XoaBaiViet(id);
         }
 
-    
+
+        public object ContenProduct(int id)
+        {
+            var data = cl.NoiDungBaiVietClient(id);
+            return new ProductMv()
+            {
+                ID = data.MaBaiViet,
+               Title = data.TieuDe,
+                user = new UserMv()
+                {
+                    ID = data.NguoiDung.MaTaiKhoan,
+                    UserName = data.NguoiDung.TenTaiKhoan,
+                    ProductViewContracts = data.NguoiDung.DanhSachBaiVietKhac.Select(x => new ProductMv
+                    {
+                        ID = x.MaBaiViet,
+                        Title = x.TieuDe,
+                        DateCreate = x.NgayTao,
+                        EditProductViewCount = x.SoBinhLuan
+                    }).ToList(),
+                },
+                DateCreate = data.NgayTao,
+                EditProductViewCount = data.SoBinhLuan,
+                Category = new CategoryMv()
+                {
+                    ID = data.DanhMuc.MaDanhMuc,
+                    Name = data.DanhMuc.TenDanhMuc
+                },
+                Content = data.NoiDung,
+                EditProductViews = data.DanhSachBinhLuan.Select(x => new EditProductMv()
+                {
+                    ID = x.MaBinhLuan,
+                    User = new UserMv()
+                    {
+                        ID = x.NguoiDung.MaTaiKhoan,
+                        UserName = x.NguoiDung.TenTaiKhoan
+                    },
+                    Content = x.NoiDungBinhLuan,
+                    dayCreateEI = x.NgayCapNhat,
+
+                }).ToList()
+            };
+        }
+
+        public bool LetUserComment(EditProductMv editProduct)
+        {
+            
+            return false;
+        }
     }
 }

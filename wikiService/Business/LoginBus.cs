@@ -34,10 +34,17 @@ namespace wikiService.Business
 
         public bool Register(UserContract userContract)
         {
-
+            userContract.idR = 1;
             var result = new UserDao().CreateAccount(userContract);
             return result;
 
+        }
+
+        public bool RegisterClient(UserContract userContract)
+        {
+            userContract.idR = 2;
+            var result = new UserDao().CreateAccount(userContract);
+            return result;
         }
     }
 }

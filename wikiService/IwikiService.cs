@@ -18,6 +18,9 @@ namespace wikiService
         int Login(UserContract userCaContract);
         [OperationContract(Name = "DangKiTaiKhoanAdmin")]
         bool RegisterAdmin(UserContract userContract);
+        [OperationContract(Name = "DangKiTaiKhoanUser")]
+        bool RegisterUser(UserContract userContract);
+
         [OperationContract(Name = "KiemTraiTaiKhoanDatontai")]
         bool checkEmaiilUser(string email);
         [OperationContract(Name = "KiemTraTaiKhoan")]
@@ -54,6 +57,7 @@ namespace wikiService
         IEnumerable<ProductViewContract> ListAllProductClientView();
         [OperationContract(Name = "DanhSachSanPhamTheoDanhMuc")]
         IEnumerable<ProductViewContract> ListAllProductByCategory(int idCate);
+       
 
         [OperationContract(Name = "KiemTraTieuDeDaTonTai")]
         bool CheckTitleExist(string title);
@@ -61,6 +65,8 @@ namespace wikiService
         bool CreateNewProduct(ProductViewContract product);
         [OperationContract(Name = "ChiTietSanPham")]
         ProductViewContract DetaiContract(int id);
+        [OperationContract(Name = "NoiDungBaiVietClient")]
+        ProductViewContract GetContemProductById(int id);
         [OperationContract(Name = "SuaBaiViet")]
         bool EditProduct(ProductViewContract product);
         [OperationContract(Name = "CapNhatBaiViet")]

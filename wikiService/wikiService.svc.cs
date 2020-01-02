@@ -57,6 +57,11 @@ namespace wikiService
             return new Responsetory().GetDetailProductById(id);
         }
 
+        public ProductViewContract GetContemProductById(int id)
+        {
+           return  new Responsetory().GetDetailProductClientById(id);
+        }
+
 
         public bool EditProduct(ProductViewContract product)
         {
@@ -125,9 +130,14 @@ namespace wikiService
 
         public bool RegisterAdmin(UserContract userContract)
         {
-            userContract.idR = 1;
+           
             var result = new Responsetory().AdminRegister(userContract);
             return result;
+        }
+
+        public bool RegisterUser(UserContract userContract)
+        {
+            return new Responsetory().RegisterUser(userContract);
         }
 
         public bool checkEmaiilUser(string email)

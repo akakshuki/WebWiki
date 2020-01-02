@@ -12,7 +12,7 @@ namespace wikiService.Business
     {
         public IEnumerable<ProductViewContract> getAllListProduct()
         {
-            var result = new ProductDao().GetAllListProduct().Select(x=>new ProductViewContract
+            var result = new ProductDao().GetAllListProduct().Select(x => new ProductViewContract
             {
                 ID = x.idInfor,
                 Title = x.titleInfo,
@@ -57,14 +57,14 @@ namespace wikiService.Business
                 DateCreate = result.dayCreateInfo,
                 Content = result.contentInfo,
                 hideInfo = result.hideInfo,
-                EditInforCount = result.EditInfoes.Where(k => k.idUser != result.idUser).Count()    
+                EditInforCount = result.EditInfoes.Where(k => k.idUser != result.idUser).Count()
             };
-           return  data;
+            return data;
         }
 
         public bool DeleteProduct(int id)
         {
-           return new ProductDao().DeleteProduct(id);
+            return new ProductDao().DeleteProduct(id);
         }
 
         public bool EditProduct(ProductViewContract product)
@@ -74,9 +74,9 @@ namespace wikiService.Business
 
         public IEnumerable<ProductViewContract> GetListProductByCateId(int idCate)
         {
-            var list = new ProductDao().GetProductsClientByCateId(idCate).Select(x=> new ProductViewContract()
+            var list = new ProductDao().GetProductsClientByCateId(idCate).Select(x => new ProductViewContract()
             {
-                ID =  x.idCate,
+                ID = x.idInfor,
                 Title = x.titleInfo,
                 DateCreate = x.dayCreateInfo,
                 User = new UserDao().GetUserDetailById(x.idUser),
@@ -91,7 +91,7 @@ namespace wikiService.Business
         {
             var list = new ProductDao().GetProductsClientView().Select(x => new ProductViewContract()
             {
-                ID = x.idCate,
+                ID = x.idInfor,
                 Title = x.titleInfo,
                 DateCreate = x.dayCreateInfo,
                 User = new UserDao().GetUserDetailById(x.idUser),
@@ -100,6 +100,56 @@ namespace wikiService.Business
 
             }).ToList();
             return list;
+        }
+
+        public ProductViewContract getContentById(int id)
+        {
+            var data = new ProductDao().GetDetailProductById(id);
+            var res = new ProductViewContract()
+            {
+                ID = data.idInfor,
+                Title = data.titleInfo,
+                User = new UserContract()
+                {
+                    ID = data.User.idUser,
+                    UserName = data.User.nameUser,
+                    ProductViewContracts = data.User.Information.Where(x => x.idInfor != data.idInfor && x.idUser == data.idUser).Select(x => new ProductViewContract
+                    {
+                        ID = x.idInfor,
+                        Title = x.titleInfo,
+                        EditInforCount = x.EditInfoes.Count,
+                        DateCreate = x.dayCreateInfo
+                    }).ToList()
+
+                },
+                Category = new CategoryContract()
+                {
+                    ID = data.Category.idCate,
+                    Name = data.Category.nameCate
+                },
+                EditInforCount = data.EditInfoes.Count,
+                EditProductViewContracts = data.EditInfoes.Select(x => new EditProductViewContract()
+                {
+                    ID = x.idEI,
+                    User = new UserContract()
+                    {
+                        ID = x.idUser,
+                        UserName = x.User.nameUser
+                    },
+                    DateCreateEI = x.dayCreateEI,
+                    Content = x.contentEdit,
+                    ProductId = x.idInfo,
+                    UserID = x.idUser
+
+                }).ToList(),
+                Content = data.contentInfo,
+                DateCreate = data.dayCreateInfo,
+
+
+
+
+            };
+                return res;
         }
     }
 }

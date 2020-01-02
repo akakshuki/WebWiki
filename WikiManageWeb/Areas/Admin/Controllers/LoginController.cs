@@ -40,11 +40,16 @@ namespace WikiManageWeb.Areas.Admin.Controllers
                     userSession.UserID = checkRole.ID;
                     userSession.UserName = checkRole.UserName;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AdminHome", "Home");
                 }
                 else
                 {
-                    return Redirect("~/Home/");
+                    var userSession = new UserLogin();
+                    userSession.UserID = checkRole.ID;
+                    userSession.UserName = checkRole.UserName;
+                    userSession.IdR = checkRole.idR;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return RedirectToAction("Index","Home");
                 }
             }
 

@@ -19,15 +19,32 @@ namespace WikiManageWeb.Dao
             cl = new DichVuWikiClient();
         }
         //Dang nhap
-        public int LoginAdmin(string email , string password)
+        public int LoginAdmin(string email, string password)
         {
             try
             {
                 var data = new TaiKhoan();
                 data.Email = email;
-                data.MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(email)+Encryptor.Base64Hash(password));
+                data.MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(email) + Encryptor.Base64Hash(password));
                 var result = cl.DangNhap(data);
                 return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
+        }
+        public int LoginClient(UserMv user)
+        {
+            try
+            {
+                var data = new TaiKhoan()
+                {
+                    Email = user.Email,
+                    MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(user.Email) + Encryptor.Base64Hash(user.Password))
+                };
+                return cl.DangNhap(data);
             }
             catch (Exception e)
             {
@@ -54,7 +71,7 @@ namespace WikiManageWeb.Dao
             var data = new WikiService.TaiKhoan();
             data.TenTaiKhoan = user.UserName;
             data.Email = user.Email;
-            data.MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(user.Email) + Encryptor.Base64Hash(user.Password)); 
+            data.MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(user.Email) + Encryptor.Base64Hash(user.Password));
             var result = cl.DangKiTaiKhoanAdmin(data);
             return result;
         }
@@ -62,6 +79,20 @@ namespace WikiManageWeb.Dao
         public bool CheckEmailUser(string userEmail)
         {
             return cl.KiemTraiTaiKhoanDatontai(userEmail);
+        }
+
+        public bool RegisterClientAccount(UserMv user)
+        {
+            var data = new WikiService.TaiKhoan()
+            {
+                TenTaiKhoan = user.UserName,
+                Email = user.Email,
+                MatKhau = Encryptor.MD5Hash(Encryptor.Base64Hash(user.Email) + Encryptor.Base64Hash(user.Password)
+                )
+            };
+
+            var result = cl.DangKiTaiKhoanUser(data);
+            return result;
         }
     }
 }

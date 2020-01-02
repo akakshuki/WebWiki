@@ -10,5 +10,6 @@ namespace WikiManageWeb.Common
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
+        public int IdR { get; set; }
     }
 }

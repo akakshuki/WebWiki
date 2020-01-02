@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WikiManageWeb.Common;
 using WikiManageWeb.Dao;
+using WikiManageWeb.Models.ModelsView;
 
 namespace WikiManageWeb.Controllers
 {
@@ -17,11 +19,29 @@ namespace WikiManageWeb.Controllers
         [ChildActionOnly]
         public ActionResult HeaderBar()
         {
-            return PartialView();
+            var userSession = (UserLogin)Session[CommonConstants.USER_SESSION];
+            UserMv userinf = null;
+            if (userSession != null)
+            {
+              userinf = new UserMv()
+                {
+                    ID = userSession.UserID,
+                    UserName = userSession.UserName
+
+                };
+                return PartialView(userinf);
+            }
+            else
+            {
+                 userinf = null;
+                 return PartialView(userinf);
+            }
+            
         }
         [ChildActionOnly]
         public ActionResult NavigationBar()
         {
+
             var listCategory = new CategoryDao().ListCateClient();
             return PartialView(listCategory);
         }

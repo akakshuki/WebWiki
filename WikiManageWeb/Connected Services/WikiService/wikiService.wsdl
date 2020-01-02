@@ -19,6 +19,12 @@
   <wsdl:message name="DichVuWiki_DangKiTaiKhoanAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:DangKiTaiKhoanAdminResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_DangKiTaiKhoanUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DangKiTaiKhoanUser" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DangKiTaiKhoanUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DangKiTaiKhoanUserResponse" />
+  </wsdl:message>
   <wsdl:message name="DichVuWiki_KiemTraiTaiKhoanDatontai_InputMessage">
     <wsdl:part name="parameters" element="tns:KiemTraiTaiKhoanDatontai" />
   </wsdl:message>
@@ -115,6 +121,12 @@
   <wsdl:message name="DichVuWiki_ChiTietSanPham_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChiTietSanPhamResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_NoiDungBaiVietClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:NoiDungBaiVietClient" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_NoiDungBaiVietClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NoiDungBaiVietClientResponse" />
+  </wsdl:message>
   <wsdl:message name="DichVuWiki_SuaBaiViet_InputMessage">
     <wsdl:part name="parameters" element="tns:SuaBaiViet" />
   </wsdl:message>
@@ -141,6 +153,10 @@
     <wsdl:operation name="DangKiTaiKhoanAdmin">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DangKiTaiKhoanAdmin" message="tns:DichVuWiki_DangKiTaiKhoanAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/DangKiTaiKhoanAdminResponse" message="tns:DichVuWiki_DangKiTaiKhoanAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DangKiTaiKhoanUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DangKiTaiKhoanUser" message="tns:DichVuWiki_DangKiTaiKhoanUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/DangKiTaiKhoanUserResponse" message="tns:DichVuWiki_DangKiTaiKhoanUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="KiemTraiTaiKhoanDatontai">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/KiemTraiTaiKhoanDatontai" message="tns:DichVuWiki_KiemTraiTaiKhoanDatontai_InputMessage" />
@@ -206,6 +222,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ChiTietSanPham" message="tns:DichVuWiki_ChiTietSanPham_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ChiTietSanPhamResponse" message="tns:DichVuWiki_ChiTietSanPham_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="NoiDungBaiVietClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/NoiDungBaiVietClient" message="tns:DichVuWiki_NoiDungBaiVietClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/NoiDungBaiVietClientResponse" message="tns:DichVuWiki_NoiDungBaiVietClient_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SuaBaiViet">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/SuaBaiViet" message="tns:DichVuWiki_SuaBaiViet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/SuaBaiVietResponse" message="tns:DichVuWiki_SuaBaiViet_OutputMessage" />
@@ -232,6 +252,15 @@
     </wsdl:operation>
     <wsdl:operation name="DangKiTaiKhoanAdmin">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/DangKiTaiKhoanAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DangKiTaiKhoanUser">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/DangKiTaiKhoanUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -376,6 +405,15 @@
     </wsdl:operation>
     <wsdl:operation name="ChiTietSanPham">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/ChiTietSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoiDungBaiVietClient">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/NoiDungBaiVietClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

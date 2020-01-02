@@ -1,4 +1,5 @@
-﻿@using System.Web.ModelBinding
+﻿@model WikiManageWeb.Models.ModelsView.UserMv
+@using System.Web.ModelBinding
 @{
     Layout = null;
 }
@@ -16,42 +17,50 @@
 
 </head>
 <body>
-    <div class="container mb-md-5">
-        <div class="sidenav">
-            <div class="login-main-text">
-                <h1 id="logoPage">W</h1>
-                <p>Login or register from here to access.</p>
-            </div>
+<div class="container mb-md-5">
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h1 id="logoPage">W</h1>
+            <p>Login or register from here to access.</p>
         </div>
-        <div class="main">
-            <div class="col-md-6 col-sm-12">
-                <div class="login-form">
-                    @using (Html.BeginForm("Login", "Account"))
-                    {
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" placeholder="User Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" class="form-control" placeholder="User Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn text-white btn-black mb-4">Register</button>
-                    }
-                    @using (Html.BeginForm("Login", "Account"))
-                    {<button type="submit" class="btn text-white btn-secondary">Login</button>}
-                </div>
+    </div>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                @using (Html.BeginForm("Register", "Account"))
+                {
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="Email" class="form-control" placeholder="User Name">
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="USerName" class="form-control" placeholder="User Name">
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="Password" id="Password" class="form-control" placeholder="Password">
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Password">
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn text-white btn-black mb-4">Register</button>
+                }
+                @using (Html.BeginForm("Login", "Account"))
+                {<button type="submit" class="btn text-white btn-secondary">Login</button>}
             </div>
         </div>
     </div>
+</div>
+@if (ViewBag.Message != null)
+{
+<span class="alert alert-danger font-weight-bold"> @ViewBag.Message</span>   
+}
     <footer class="text-center">
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
@@ -63,6 +72,14 @@
             function () {
                 location.href = '/';
             });
+        $(function() {
+            $('#ConfirmPassword').keyup(function() {
+                var password = $('#Password').val();
+                if (password === $(this).val()) {
+                    
+                }
+            });
+        });
     </script>
 </body>
 </html>
