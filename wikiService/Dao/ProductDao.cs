@@ -73,6 +73,12 @@ namespace wikiService.Dao
             try
             {
                 var data = db.Information.Find(id);
+
+                var listComment = db.EditInfoes.Where(x => x.idInfo== data.idInfor).ToList();
+                foreach (var item in listComment)
+                {
+                    db.EditInfoes.Remove(item);
+                }
                 db.Information.Remove(data);
                 if (db.SaveChanges()>0)
                 {
@@ -125,6 +131,43 @@ namespace wikiService.Dao
         {
             var data = db.Information.Where(x=>x.hideInfo).ToList();
             return data;
+        }
+
+        public bool LetUserComment(EditProductViewContract editProduct)
+        {
+           var data = db.EditInfoes.Add(new EditInfo()
+           {
+               idUser = editProduct.UserID,
+               idInfo = editProduct.ProductId,
+               contentEdit = editProduct.Content,
+               dayCreateEI = editProduct.DateCreateEI,
+               
+           });
+           if (db.SaveChanges()>0)
+           {
+               return true;
+            }
+           else
+           {
+               return false;
+           }
+           
+        }
+
+        public bool DeleteComment(int id)
+        {
+            var data = db.EditInfoes.Find(id);
+            db.EditInfoes.Remove(data);
+            if (db.SaveChanges()>0)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

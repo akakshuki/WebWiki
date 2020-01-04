@@ -19,6 +19,11 @@ namespace WikiManageWeb.Areas.Admin.Controllers
                 filterContext.Result = new RedirectToRouteResult(new
                     RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));
             }
+            else if(session != null && session.IdR != 1)
+            {
+                filterContext.Result = new RedirectToRouteResult(new
+                    RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));
+            }
         }
 
         protected void setAlbert(string messenger, string type)

@@ -4,6 +4,7 @@ using System.Web;
 using System.Collections.Generic;
 using System.ServiceModel;
 using wikiService.Models.ModelViewContract;
+using wikiService.Models.ServicepartnerContract;
 
 
 namespace wikiService
@@ -65,6 +66,7 @@ namespace wikiService
         bool CreateNewProduct(ProductViewContract product);
         [OperationContract(Name = "ChiTietSanPham")]
         ProductViewContract DetaiContract(int id);
+
         [OperationContract(Name = "NoiDungBaiVietClient")]
         ProductViewContract GetContemProductById(int id);
         [OperationContract(Name = "SuaBaiViet")]
@@ -74,12 +76,37 @@ namespace wikiService
         [OperationContract(Name = "XoaBaiViet")]
         bool DeleteProduct(int id);
 
+        [OperationContract(Name = "BinhLuanSanPham")]
+        bool CommentProductByClient(EditProductViewContract editProduct);
+        [OperationContract(Name = "XoaBinhLuan")]
+        bool DeleteComment(int id);
+
         #endregion
 
-        #region UpdateCommnent
 
+        #region PartnerService
+        [OperationContract (Name = "TaoMoiBacPartner")]
+        bool CreateNewRoleService(AccountRoleServiceContract accountRole);
+        
+        [OperationContract (Name = "ThemMoiChungNangTrongQuyenPartner")]
+        bool CreateNewDataContractSeriveWithRole(DataContractServiceRole contractServiceRole);
+        
+        [OperationContract (Name = "ThemMoiPartner")]
+        bool CreatePartner(AccountServiceContract account);
         
 
+
+
+
+        [OperationContract(Name = "DanhSachQuyenHangVaThanhVien")]
+        List<AccountRoleServiceContract> AccountRoleServiceContracts();
+        [OperationContract(Name = "DanhSachThanhVien")]
+        List<AccountServiceContract> AccountServiceContracts();
+        [OperationContract(Name = "DanhSachThanhVien")]
+        List<DataContractServiceRole> DataContractServiceRoles(int idRole);
+
+
         #endregion
+
     }
 }

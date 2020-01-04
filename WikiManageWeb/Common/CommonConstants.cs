@@ -4,6 +4,10 @@
     {
         public static string USER_SESSION = "USER_SESSION";
 
-        public const string cartSession = "CARTSESSION";
+        public const string Message = "MESSAGE";
+
+        public const string SuccessMessage = "SUCCESSMESSAGE";
+
+
     }
 }

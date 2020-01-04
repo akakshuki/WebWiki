@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MangeServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="IDASR" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="AccountServiceRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="OperationRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDASR" Type="int" />
+        </EntityType>
+        <Association Name="FK_AccountService_AccountServiceRole">
+          <End Role="AccountServiceRole" Type="Self.AccountServiceRole" Multiplicity="1" />
+          <End Role="AccountService" Type="Self.AccountService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountServiceRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccountService">
+              <PropertyRef Name="IDASR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperationRole_AccountServiceRole">
+          <End Role="AccountServiceRole" Type="Self.AccountServiceRole" Multiplicity="0..1" />
+          <End Role="OperationRole" Type="Self.OperationRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountServiceRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OperationRole">
+              <PropertyRef Name="IDASR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MangeServiceModelStoreContainer">
+          <EntitySet Name="AccountService" EntityType="Self.AccountService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountServiceRole" EntityType="Self.AccountServiceRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperationRole" EntityType="Self.OperationRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccountService_AccountServiceRole" Association="Self.FK_AccountService_AccountServiceRole">
+            <End Role="AccountServiceRole" EntitySet="AccountServiceRole" />
+            <End Role="AccountService" EntitySet="AccountService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperationRole_AccountServiceRole" Association="Self.FK_OperationRole_AccountServiceRole">
+            <End Role="AccountServiceRole" EntitySet="AccountServiceRole" />
+            <End Role="OperationRole" EntitySet="OperationRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MangeServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MangeServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountServices" EntityType="MangeServiceModel.AccountService" />
+          <EntitySet Name="AccountServiceRoles" EntityType="MangeServiceModel.AccountServiceRole" />
+          <EntitySet Name="OperationRoles" EntityType="MangeServiceModel.OperationRole" />
+          <AssociationSet Name="FK_AccountService_AccountServiceRole" Association="MangeServiceModel.FK_AccountService_AccountServiceRole">
+            <End Role="AccountServiceRole" EntitySet="AccountServiceRoles" />
+            <End Role="AccountService" EntitySet="AccountServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperationRole_AccountServiceRole" Association="MangeServiceModel.FK_OperationRole_AccountServiceRole">
+            <End Role="AccountServiceRole" EntitySet="AccountServiceRoles" />
+            <End Role="OperationRole" EntitySet="OperationRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccountService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IDASR" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="AccountServiceRole" Relationship="MangeServiceModel.FK_AccountService_AccountServiceRole" FromRole="AccountService" ToRole="AccountServiceRole" />
+        </EntityType>
+        <EntityType Name="AccountServiceRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="AccountServices" Relationship="MangeServiceModel.FK_AccountService_AccountServiceRole" FromRole="AccountServiceRole" ToRole="AccountService" />
+          <NavigationProperty Name="OperationRoles" Relationship="MangeServiceModel.FK_OperationRole_AccountServiceRole" FromRole="AccountServiceRole" ToRole="OperationRole" />
+        </EntityType>
+        <EntityType Name="OperationRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDASR" Type="Int32" />
+          <NavigationProperty Name="AccountServiceRole" Relationship="MangeServiceModel.FK_OperationRole_AccountServiceRole" FromRole="OperationRole" ToRole="AccountServiceRole" />
+        </EntityType>
+        <Association Name="FK_AccountService_AccountServiceRole">
+          <End Type="MangeServiceModel.AccountServiceRole" Role="AccountServiceRole" Multiplicity="1" />
+          <End Type="MangeServiceModel.AccountService" Role="AccountService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountServiceRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccountService">
+              <PropertyRef Name="IDASR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperationRole_AccountServiceRole">
+          <End Type="MangeServiceModel.AccountServiceRole" Role="AccountServiceRole" Multiplicity="0..1" />
+          <End Type="MangeServiceModel.OperationRole" Role="OperationRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountServiceRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OperationRole">
+              <PropertyRef Name="IDASR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MangeServiceModelStoreContainer" CdmEntityContainer="MangeServiceEntities">
+          <EntitySetMapping Name="AccountServices">
+            <EntityTypeMapping TypeName="MangeServiceModel.AccountService">
+              <MappingFragment StoreEntitySet="AccountService">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IDASR" ColumnName="IDASR" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountServiceRoles">
+            <EntityTypeMapping TypeName="MangeServiceModel.AccountServiceRole">
+              <MappingFragment StoreEntitySet="AccountServiceRole">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperationRoles">
+            <EntityTypeMapping TypeName="MangeServiceModel.OperationRole">
+              <MappingFragment StoreEntitySet="OperationRole">
+                <ScalarProperty Name="IDASR" ColumnName="IDASR" />
+                <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

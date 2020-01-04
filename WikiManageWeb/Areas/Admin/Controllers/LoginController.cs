@@ -36,20 +36,24 @@ namespace WikiManageWeb.Areas.Admin.Controllers
                 var checkRole = new UserDao().CheckRoleUserById(result);
                 if (checkRole.idR == 1)
                 {
-                    var userSession = new UserLogin();
-                    userSession.UserID = checkRole.ID;
-                    userSession.UserName = checkRole.UserName;
-                    Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("AdminHome", "Home");
-                }
-                else
-                {
+                    Session[CommonConstants.USER_SESSION] = null;
                     var userSession = new UserLogin();
                     userSession.UserID = checkRole.ID;
                     userSession.UserName = checkRole.UserName;
                     userSession.IdR = checkRole.idR;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("AdminHome", "Home");
+                }
+                else
+                {
+                    Session[CommonConstants.USER_SESSION] = null;
+                    var userSession = new UserLogin();
+                    userSession.UserID = checkRole.ID;
+                    userSession.UserName = checkRole.UserName;
+                    userSession.IdR = checkRole.idR;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return  Redirect("/Home");
+
                 }
             }
 

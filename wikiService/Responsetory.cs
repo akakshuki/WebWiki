@@ -6,6 +6,7 @@ using wikiService.Business;
 using wikiService.Dao;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
+using wikiService.Models.ServicepartnerContract;
 
 
 namespace wikiService
@@ -120,9 +121,24 @@ namespace wikiService
         {
             return  new ProductBus().getContentById(id);
         }
+
+
+        public bool LetUserComment(EditProductViewContract editProduct)
+        {
+            return new ProductBus().LetUserComment(editProduct);
+        }
+
+        public bool DeleteComment(int id)
+        {
+            return new ProductBus().DeleteComment(id);
+        }
+
         #endregion
 
 
-
+        public bool CreateNewPartner(AccountServiceContract account)
+        {
+            return  new PartnerBus().CreaterNewPartner(account);
+        }
     }
 }

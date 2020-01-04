@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
+using wikiService.Models.ServicepartnerContract;
 
 
 namespace wikiService
@@ -77,6 +78,17 @@ namespace wikiService
         {
            return new Responsetory().DeleteProduct(id);
         }
+        public bool CommentProductByClient(EditProductViewContract editProduct)
+        {
+            return new Responsetory().LetUserComment(editProduct);
+        }
+
+        public bool DeleteComment(int id)
+        {
+            return new Responsetory().DeleteComment(id);
+        }
+
+       
 
         #endregion
 
@@ -120,6 +132,7 @@ namespace wikiService
 
         #endregion
 
+      
         #region User
 
         public int Login(UserContract userCaContract)
@@ -150,6 +163,42 @@ namespace wikiService
             var result = new Responsetory().CheckRoleUser(userContract);
             return result;
         }
+
+
+        #endregion
+
+        #region partner
+
+        public bool CreateNewRoleService(AccountRoleServiceContract accountRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreateNewDataContractSeriveWithRole(DataContractServiceRole contractServiceRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreatePartner(AccountServiceContract account)
+        {
+            return new Responsetory().CreateNewPartner(account);
+        }
+
+        public List<AccountRoleServiceContract> AccountRoleServiceContracts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AccountServiceContract> AccountServiceContracts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DataContractServiceRole> DataContractServiceRoles(int idRole)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

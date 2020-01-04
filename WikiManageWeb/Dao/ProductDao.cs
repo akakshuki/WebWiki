@@ -34,7 +34,7 @@ namespace WikiManageWeb.Dao
 
         public List<ProductMv> GetListProductClientView()
         {
-            var data = cl.DanhSachBaiVietNguoiDung().Select(x => new ProductMv()
+            var data = cl.DanhSachBaiVietNguoiDung().OrderByDescending(x=> x.NgayTao).Select(x => new ProductMv()
             {
                 ID = x.MaBaiViet,
                 Title = x.TieuDe,
@@ -57,7 +57,7 @@ namespace WikiManageWeb.Dao
 
         public List<ProductMv> GetListProductClientView(int CateId)
         {
-            var data = cl.DanhSachSanPhamTheoDanhMuc(CateId).Select(x => new ProductMv()
+            var data = cl.DanhSachSanPhamTheoDanhMuc(CateId).OrderByDescending(x=>x.NgayTao).Select(x => new ProductMv()
             {
                 ID = x.MaBaiViet,
                 Title = x.TieuDe,
@@ -99,7 +99,7 @@ namespace WikiManageWeb.Dao
 
         public ProductMv GetDetailProduct(int id)
         {
-            var data = cl.ChiTietSanPham(id);
+                var data = cl.ChiTietSanPham(id);
             return new ProductMv()
             {
                 ID = data.MaBaiViet,
@@ -175,8 +175,20 @@ namespace WikiManageWeb.Dao
 
         public bool LetUserComment(EditProductMv editProduct)
         {
-            
-            return false;
+            var data = new LichSuBinhLuan()
+            {
+                MaNguoiDung =  editProduct.UserID,
+                MaBaiViet = editProduct.ProductId,
+                NoiDungBinhLuan = editProduct.Content
+            };
+
+            return cl.BinhLuanSanPham(data);
         }
+
+        public bool DeleteComment(int id)
+        {
+            return cl.XoaBinhLuan(id);
+        }
+
     }
 }

@@ -57,7 +57,7 @@ namespace wikiService.Business
                 DateCreate = result.dayCreateInfo,
                 Content = result.contentInfo,
                 hideInfo = result.hideInfo,
-                EditInforCount = result.EditInfoes.Where(k => k.idUser != result.idUser).Count()
+                EditInforCount = result.EditInfoes.Count()
             };
             return data;
         }
@@ -81,7 +81,7 @@ namespace wikiService.Business
                 DateCreate = x.dayCreateInfo,
                 User = new UserDao().GetUserDetailById(x.idUser),
                 Category = new CategoryBus().GetDetailCategory(x.idCate),
-                EditInforCount = x.EditInfoes.Where(k => k.idUser != x.idUser).Count()
+                EditInforCount = x.EditInfoes.Count()
 
             }).ToList();
             return list;
@@ -96,7 +96,7 @@ namespace wikiService.Business
                 DateCreate = x.dayCreateInfo,
                 User = new UserDao().GetUserDetailById(x.idUser),
                 Category = new CategoryBus().GetDetailCategory(x.idCate),
-                EditInforCount = x.EditInfoes.Where(k => k.idUser != x.idUser).Count()
+                EditInforCount = x.EditInfoes.Count()
 
             }).ToList();
             return list;
@@ -150,6 +150,17 @@ namespace wikiService.Business
 
             };
                 return res;
+        }
+
+        public bool LetUserComment(EditProductViewContract editProduct)
+        {
+            editProduct.DateCreateEI =DateTime.Now;
+            return new ProductDao().LetUserComment(editProduct);
+        }
+
+        public bool DeleteComment(int id)
+        {
+           return new ProductDao().DeleteComment(id);
         }
     }
 }

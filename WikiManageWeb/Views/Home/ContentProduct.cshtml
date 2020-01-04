@@ -1,23 +1,69 @@
 ﻿@using System.Web.UI.WebControls
+@using WikiManageWeb.Common
 @model WikiManageWeb.Models.ModelsView.ProductMv
 @{
     ViewBag.Title = "ContentProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section jsFooter
+{
+    <script>
+        $('#btnDelete').on('click',
+            function() {
 
+                var r = confirm("bạn có muốn xóa bài viết này?");
+                if (r == true) {
+
+                    var idProduct = @Model.ID;
+                    $.ajax({
+                        url: '/Home/Delete/',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            id: idProduct
+                        },
+                        success: function(responese) {
+                            if (responese.status) {
+                                location.href = "/home";
+                            } else {
+                                location.href.reload();
+                            }
+                        }
+
+                    });
+                } else {
+                    txt = "You pressed Cancel!";
+                }
+            });
+
+
+    </script>
+}
 <div class="container">
     <div id="contentHeader row">
         <div class="col-md-2">
             <div>
                 <a class="text-center text-dark font-weight-bold" href=""> #@Model.user.UserName</a>
             </div>
-            <p>@Model.DateCreate.ToString("MM/dd/yyyy ")</p>
-            <a href="@Url.Action("ListProductByCategory","Home", new {id = Model.Category.ID})"><span class=" border border-circle text-dark border-dark text-center">@Model.Category.Name</span></a>
+            <p>@Model.DateCreate.ToString("dd/MM/yyyy ")</p>
+            <a href="@Url.Action("ListProductByCategory", "Home", new {id = Model.Category.ID})"><span class=" border border-circle text-dark border-dark text-center">@Model.Category.Name</span></a>
         </div>
 
         <div class="col-md-8 pl-2 text-muted">
             <i class="fas fa-comment"></i> @Model.EditProductViewCount
         </div>
+        @if (ViewBag.InfoSession != null && ViewBag.InfoSession.UserID == Model.user.ID)
+        {
+
+            <div class="btn-group fa-1x float-right dropleft">
+                <span id="btnDelete"><i class="fas fa-trash-alt m-2"></i></span>
+                <span><i class="far fa-edit m-2"></i></span>
+            </div>
+
+
+
+        }
+
     </div>
     <hr />
     <h3>@Model.Title</h3>
@@ -36,7 +82,22 @@
                     <a class="text-center text-dark font-weight-bold mb-3" href="">@item.User.UserName</a>
                     <span class="mx-5">@item.Content</span>
                     <span class="text-muted">@item.dayCreateEI</span>
+                    @if (ViewBag.InfoSession != null)
+                    {
+                        if (ViewBag.InfoSession.UserID == item.User.ID)
+                        {
+                            using (Html.BeginForm("DeleteComment", "Home"))
+                            {
+                                <input type="hidden" name="ProductId" value="@Model.ID" />
+                                <input type="hidden" name="ID" value="@item.ID" />
+                                <button type="submit"> <span class="text-danger"><i class="fas fa-times"></i></span></button>
+                            }
+
+                        }
+                    }
+
                 </div>
+
                 <hr />
             }
         }
@@ -45,17 +106,20 @@
             <span>Chưa có bình luận nào</span>
         }
 
-        @using (Html.BeginForm("LetUserComment", "Home",FormMethod.Post,new {@class="Col-md-12 mt-2"}))
+        @using (Html.BeginForm("LetUserComment", "Home", FormMethod.Post, new { @class = "Col-md-12 mt-2" }))
         {
             <div class="form-group">
                 <label class="font-weight-bold">
                     Nội dung Bình luận
                 </label>
                 <input type="hidden" value="@Model.ID" name="ProductId" />
-
-                <textarea style="min-width: 60%" class="form-control" name="Content"></textarea>
+                <textarea style="min-width: 60%" class="form-control" name="Content" required></textarea>
+                @if (TempData[CommonConstants.Message] != null)
+                {
+                    <p class="alert alert-danger"> không thành công hãy thử lại </p>
+                }
             </div>
-            <button type="submit" class="btn btn-dark">Bình luận</Button>
+            <button type="submit" class="btn btn-dark">Bình luận</button>
         }
     </div>
 

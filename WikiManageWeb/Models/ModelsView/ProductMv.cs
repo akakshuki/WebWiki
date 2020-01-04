@@ -17,6 +17,8 @@ namespace WikiManageWeb.Models.ModelsView
         [Display(Name = "Nội dung")]
         [AllowHtml]
         public string Content { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DateCreate { get; set; }
         public int UserId { get; set; }
         [Display(Name = "Tác giả")]

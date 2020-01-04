@@ -71,6 +71,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EF\CheckConnectSerivicePartner.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CheckConnectSerivicePartner.edmx</DependentUpon>
+      <LastGenOutput>CheckConnectSerivicePartner.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\CheckConnectSerivicePartner.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CheckConnectSerivicePartner.edmx</DependentUpon>
+      <LastGenOutput>CheckConnectSerivicePartner.cs</LastGenOutput>
+    </Content>
     <Content Include="EF\wikiModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>wikiModel.edmx</DependentUpon>
@@ -92,16 +102,42 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Business\PartnerBus.cs" />
+    <Compile Include="Dao\PartnerDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
+    <Compile Include="EF\AccountService.cs">
+      <DependentUpon>CheckConnectSerivicePartner.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AccountServiceRole.cs">
+      <DependentUpon>CheckConnectSerivicePartner.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Category.cs">
       <DependentUpon>wikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CheckConnectSerivicePartner.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckConnectSerivicePartner.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CheckConnectSerivicePartner.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckConnectSerivicePartner.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CheckConnectSerivicePartner.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckConnectSerivicePartner.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\EditInfo.cs">
       <DependentUpon>wikiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Information.cs">
       <DependentUpon>wikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\OperationRole.cs">
+      <DependentUpon>CheckConnectSerivicePartner.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Role.cs">
       <DependentUpon>wikiModel.tt</DependentUpon>
@@ -129,6 +165,9 @@
     <Compile Include="Models\ModelViewContract\EditProductViewContract.cs" />
     <Compile Include="Models\ModelViewContract\ProductViewContract.cs" />
     <Compile Include="Models\ModelViewContract\UserContract.cs" />
+    <Compile Include="Models\ServicepartnerContract\AccountRoleServiceContract.cs" />
+    <Compile Include="Models\ServicepartnerContract\AccountServiceContract.cs" />
+    <Compile Include="Models\ServicepartnerContract\DataContractServiceRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsetory.cs" />
     <Compile Include="wikiService.svc.cs">
@@ -145,6 +184,13 @@
     </EntityDeploy>
     <Content Include="EF\wikiModel.edmx.diagram">
       <DependentUpon>wikiModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="EF\CheckConnectSerivicePartner.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CheckConnectSerivicePartner.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EF\CheckConnectSerivicePartner.edmx.diagram">
+      <DependentUpon>CheckConnectSerivicePartner.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

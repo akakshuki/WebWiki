@@ -766,6 +766,18 @@ namespace WikiManageWeb.WikiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaBaiViet", ReplyAction="http://tempuri.org/DichVuWiki/XoaBaiVietResponse")]
         System.Threading.Tasks.Task<bool> XoaBaiVietAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/BinhLuanSanPham", ReplyAction="http://tempuri.org/DichVuWiki/BinhLuanSanPhamResponse")]
+        bool BinhLuanSanPham(WikiManageWeb.WikiService.LichSuBinhLuan editProduct);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/BinhLuanSanPham", ReplyAction="http://tempuri.org/DichVuWiki/BinhLuanSanPhamResponse")]
+        System.Threading.Tasks.Task<bool> BinhLuanSanPhamAsync(WikiManageWeb.WikiService.LichSuBinhLuan editProduct);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaBinhLuan", ReplyAction="http://tempuri.org/DichVuWiki/XoaBinhLuanResponse")]
+        bool XoaBinhLuan(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaBinhLuan", ReplyAction="http://tempuri.org/DichVuWiki/XoaBinhLuanResponse")]
+        System.Threading.Tasks.Task<bool> XoaBinhLuanAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -977,6 +989,22 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> XoaBaiVietAsync(int id) {
             return base.Channel.XoaBaiVietAsync(id);
+        }
+        
+        public bool BinhLuanSanPham(WikiManageWeb.WikiService.LichSuBinhLuan editProduct) {
+            return base.Channel.BinhLuanSanPham(editProduct);
+        }
+        
+        public System.Threading.Tasks.Task<bool> BinhLuanSanPhamAsync(WikiManageWeb.WikiService.LichSuBinhLuan editProduct) {
+            return base.Channel.BinhLuanSanPhamAsync(editProduct);
+        }
+        
+        public bool XoaBinhLuan(int id) {
+            return base.Channel.XoaBinhLuan(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> XoaBinhLuanAsync(int id) {
+            return base.Channel.XoaBinhLuanAsync(id);
         }
     }
 }

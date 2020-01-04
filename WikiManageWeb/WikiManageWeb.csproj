@@ -4019,12 +4019,12 @@
     <Content Include="Views\Shared\HeaderBar.cshtml" />
     <Content Include="Views\Shared\NavigationBar.cshtml" />
     <Content Include="Views\Home\ListProductByCategory.cshtml" />
-    <Content Include="Views\Home\CreatNenContent.cshtml" />
     <Content Include="Views\Home\ContentProduct.cshtml" />
     <Content Include="Views\Home\InforUser.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Developer\Register.cshtml" />
+    <Content Include="Views\Home\CreatNenContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Acess\IMG\" />

@@ -10,11 +10,11 @@
     <link href="~/Content/style.css" rel="stylesheet" />
 </head>
 <body>
-    
+
     <div class="d-flex pt-1" id="wrapper">
 
         @{Html.RenderAction("NavigationBar", "Menu");}
-        
+
 
         <div id="page-content-wrapper">
             <header>
@@ -25,10 +25,10 @@
             <p id="menu-toggle" class="font-weight-bold"> <i class="fas fa-arrow-right"></i></p>
             <!-- content -->
             <div class="container mb-lg-5">
-                
-                    @RenderBody()
-                    <hr />
-                
+
+                @RenderBody()
+                <hr />
+
             </div>
         </div>
     </div>
@@ -39,6 +39,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @RenderSection("jsFooter", false);
     <script>
         $("#menu-toggle").on('click', function (e) {
             e.preventDefault();
