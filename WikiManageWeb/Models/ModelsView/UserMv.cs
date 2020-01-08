@@ -30,8 +30,13 @@ namespace WikiManageWeb.Models.ModelsView
         public int idR { get; set; }
 
 
+        [Display(Name = "SoBaiViet")]
+        public int ProductCount { get; set; }
+        [Display(Name = "SoBinhLuan")]
+        public int EditProductCount { get; set; }
 
-        public List<ProductMv> ProductViewContracts { get; set; }
-        public List<EditProductMv> EditProductViewContracts { get; set; }
+
+        public List<ProductMv> ProductViews { get; set; }
+        public List<EditProductMv> EditProductViews { get; set; }
     }
 }

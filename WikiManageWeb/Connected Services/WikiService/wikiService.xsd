@@ -8,6 +8,8 @@
       <xs:element minOccurs="0" name="IDRole" type="xs:int" />
       <xs:element minOccurs="0" name="MaTaiKhoan" type="xs:int" />
       <xs:element minOccurs="0" name="MatKhau" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoBaiViet" type="xs:int" />
+      <xs:element minOccurs="0" name="SoBinhLuan" type="xs:int" />
       <xs:element minOccurs="0" name="TenTaiKhoan" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TrangThai" type="xs:boolean" />
     </xs:sequence>
@@ -63,6 +65,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfLichSuBinhLuan" nillable="true" type="tns:ArrayOfLichSuBinhLuan" />
+  <xs:complexType name="ArrayOfTaiKhoan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaiKhoan" nillable="true" type="tns:TaiKhoan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaiKhoan" nillable="true" type="tns:ArrayOfTaiKhoan" />
   <xs:complexType name="ArrayOfDanhMuc">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DanhMuc" nillable="true" type="tns:DanhMuc" />

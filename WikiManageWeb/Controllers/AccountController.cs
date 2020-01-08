@@ -100,5 +100,10 @@ namespace WikiManageWeb.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult UserProfile(int id)
+        {
+            var data = new UserDao().GetUserProfile(id);
+            return View(data);
+        }
     }
 }

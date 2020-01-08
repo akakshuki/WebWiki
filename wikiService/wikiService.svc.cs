@@ -78,6 +78,12 @@ namespace wikiService
         {
            return new Responsetory().DeleteProduct(id);
         }
+
+        public List<ProductViewContract> ProductSearchByName(string name)
+        {
+            return new Responsetory().SearchProduct(name);
+        }
+
         public bool CommentProductByClient(EditProductViewContract editProduct)
         {
             return new Responsetory().LetUserComment(editProduct);
@@ -164,40 +170,37 @@ namespace wikiService
             return result;
         }
 
+        public UserContract UserProfile(int id)
+        {
+            return new Responsetory().GetUserProfile(id);
+        }
+
+
+        public List<UserContract> ListUserAdmin()
+        {
+            return new Responsetory().listUserAdmin();
+        }
+        public List<UserContract> ListUser()
+        {
+          return  new Responsetory().listUser();
+            
+        }
+
 
         #endregion
 
         #region partner
 
-        public bool CreateNewRoleService(AccountRoleServiceContract accountRole)
-        {
-            throw new NotImplementedException();
-        }
 
-        public bool CreateNewDataContractSeriveWithRole(DataContractServiceRole contractServiceRole)
-        {
-            throw new NotImplementedException();
-        }
+
+
 
         public bool CreatePartner(AccountServiceContract account)
         {
             return new Responsetory().CreateNewPartner(account);
         }
 
-        public List<AccountRoleServiceContract> AccountRoleServiceContracts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<AccountServiceContract> AccountServiceContracts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<DataContractServiceRole> DataContractServiceRoles(int idRole)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         #endregion
     }

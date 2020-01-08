@@ -13,5 +13,7 @@ namespace WikiManageWeb.Areas.Admin.Controllers
         {
             return View();
         }
+
+        
     }
 }

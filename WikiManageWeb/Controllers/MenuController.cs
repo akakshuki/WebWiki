@@ -45,5 +45,15 @@ namespace WikiManageWeb.Controllers
             var listCategory = new CategoryDao().ListCateClient();
             return PartialView(listCategory);
         }
+
+        public JsonResult SearchProduct(string name)
+        {
+            var data = new ProductDao().SearchProduct(name);
+            return Json(new
+            {
+                data = data,
+                GCNotificationStatus = true
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

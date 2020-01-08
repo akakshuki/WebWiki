@@ -176,5 +176,11 @@ namespace WikiManageWeb.Controllers
             }
         }
 
+
+        public PartialViewResult UserProfile()
+        {
+            return PartialView();
+        }
+
     }
 }

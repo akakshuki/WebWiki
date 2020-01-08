@@ -94,5 +94,51 @@ namespace WikiManageWeb.Dao
             var result = cl.DangKiTaiKhoanUser(data);
             return result;
         }
+
+        public List<UserMv> ListUserAccount()
+        {
+            return cl.DanhSachTaiKhoan().Select(x=>new UserMv
+            {
+                ID = x.MaTaiKhoan,
+                UserName = x.TenTaiKhoan,
+                Email = x.Email,
+                ProductCount = x.SoBaiViet,
+                EditProductCount = x.SoBinhLuan,
+                active = x.TrangThai
+
+            }).ToList();
+        }
+        public List<UserMv> ListAdminAccount()
+        {
+            return cl.DanhSachTaiKhoanAdmin().Select(x => new UserMv
+            {
+                ID = x.MaTaiKhoan,
+                UserName = x.TenTaiKhoan,
+                Email = x.Email,
+                ProductCount = x.SoBaiViet,
+                EditProductCount = x.SoBinhLuan,
+                active = x.TrangThai
+
+            }).ToList();
+        }
+
+        public UserMv GetUserProfile(int id)
+        {
+            var x = cl.ThongTinTaiKhoan(id);
+            return  new UserMv()
+            {
+                ID = x.MaTaiKhoan,
+                UserName = x.TenTaiKhoan,
+                Email = x.Email,
+                ProductCount = x.SoBaiViet,
+                EditProductCount = x.SoBinhLuan,
+                ProductViews= x.DanhSachBaiVietKhac.Select(e=>new ProductMv()
+                {
+                    ID = e.MaBaiViet,
+                    Title = e.TieuDe
+                }).ToList()
+
+            };
+        }
     }
 }

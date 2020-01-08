@@ -41,6 +41,12 @@ namespace WikiManageWeb.WikiService {
         private string MatKhauField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoBaiVietField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoBinhLuanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TenTaiKhoanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -130,6 +136,32 @@ namespace WikiManageWeb.WikiService {
                 if ((object.ReferenceEquals(this.MatKhauField, value) != true)) {
                     this.MatKhauField = value;
                     this.RaisePropertyChanged("MatKhau");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoBaiViet {
+            get {
+                return this.SoBaiVietField;
+            }
+            set {
+                if ((this.SoBaiVietField.Equals(value) != true)) {
+                    this.SoBaiVietField = value;
+                    this.RaisePropertyChanged("SoBaiViet");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoBinhLuan {
+            get {
+                return this.SoBinhLuanField;
+            }
+            set {
+                if ((this.SoBinhLuanField.Equals(value) != true)) {
+                    this.SoBinhLuanField = value;
+                    this.RaisePropertyChanged("SoBinhLuan");
                 }
             }
         }
@@ -625,6 +657,352 @@ namespace WikiManageWeb.WikiService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TaiKhoanPartner", Namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class TaiKhoanPartner : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaQuyenPartnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaTaiKhoanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MaTokenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MatKhauField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WikiManageWeb.WikiService.QuyenPartner QuyenCuaPartnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenDangNhapField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool TrangThaiField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaQuyenPartner {
+            get {
+                return this.MaQuyenPartnerField;
+            }
+            set {
+                if ((this.MaQuyenPartnerField.Equals(value) != true)) {
+                    this.MaQuyenPartnerField = value;
+                    this.RaisePropertyChanged("MaQuyenPartner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaTaiKhoan {
+            get {
+                return this.MaTaiKhoanField;
+            }
+            set {
+                if ((this.MaTaiKhoanField.Equals(value) != true)) {
+                    this.MaTaiKhoanField = value;
+                    this.RaisePropertyChanged("MaTaiKhoan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MaToken {
+            get {
+                return this.MaTokenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaTokenField, value) != true)) {
+                    this.MaTokenField = value;
+                    this.RaisePropertyChanged("MaToken");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MatKhau {
+            get {
+                return this.MatKhauField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MatKhauField, value) != true)) {
+                    this.MatKhauField = value;
+                    this.RaisePropertyChanged("MatKhau");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WikiManageWeb.WikiService.QuyenPartner QuyenCuaPartner {
+            get {
+                return this.QuyenCuaPartnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QuyenCuaPartnerField, value) != true)) {
+                    this.QuyenCuaPartnerField = value;
+                    this.RaisePropertyChanged("QuyenCuaPartner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenDangNhap {
+            get {
+                return this.TenDangNhapField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenDangNhapField, value) != true)) {
+                    this.TenDangNhapField = value;
+                    this.RaisePropertyChanged("TenDangNhap");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TrangThai {
+            get {
+                return this.TrangThaiField;
+            }
+            set {
+                if ((this.TrangThaiField.Equals(value) != true)) {
+                    this.TrangThaiField = value;
+                    this.RaisePropertyChanged("TrangThai");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuyenPartner", Namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class QuyenPartner : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WikiManageWeb.WikiService.TaiKhoanPartner[] DanhSachCacAccountpartnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WikiManageWeb.WikiService.QuanLiCacOperationContract[] DanhSachCacOperationContractField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaQuyenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenQuyenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool TrangThaiField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WikiManageWeb.WikiService.TaiKhoanPartner[] DanhSachCacAccountpartner {
+            get {
+                return this.DanhSachCacAccountpartnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DanhSachCacAccountpartnerField, value) != true)) {
+                    this.DanhSachCacAccountpartnerField = value;
+                    this.RaisePropertyChanged("DanhSachCacAccountpartner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WikiManageWeb.WikiService.QuanLiCacOperationContract[] DanhSachCacOperationContract {
+            get {
+                return this.DanhSachCacOperationContractField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DanhSachCacOperationContractField, value) != true)) {
+                    this.DanhSachCacOperationContractField = value;
+                    this.RaisePropertyChanged("DanhSachCacOperationContract");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaQuyen {
+            get {
+                return this.MaQuyenField;
+            }
+            set {
+                if ((this.MaQuyenField.Equals(value) != true)) {
+                    this.MaQuyenField = value;
+                    this.RaisePropertyChanged("MaQuyen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenQuyen {
+            get {
+                return this.TenQuyenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenQuyenField, value) != true)) {
+                    this.TenQuyenField = value;
+                    this.RaisePropertyChanged("TenQuyen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TrangThai {
+            get {
+                return this.TrangThaiField;
+            }
+            set {
+                if ((this.TrangThaiField.Equals(value) != true)) {
+                    this.TrangThaiField = value;
+                    this.RaisePropertyChanged("TrangThai");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuanLiCacOperationContract", Namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class QuanLiCacOperationContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaQuanLiField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaQuyenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WikiManageWeb.WikiService.QuyenPartner QuyenCuaPartnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenOperationContracField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaQuanLi {
+            get {
+                return this.MaQuanLiField;
+            }
+            set {
+                if ((this.MaQuanLiField.Equals(value) != true)) {
+                    this.MaQuanLiField = value;
+                    this.RaisePropertyChanged("MaQuanLi");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaQuyen {
+            get {
+                return this.MaQuyenField;
+            }
+            set {
+                if ((this.MaQuyenField.Equals(value) != true)) {
+                    this.MaQuyenField = value;
+                    this.RaisePropertyChanged("MaQuyen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WikiManageWeb.WikiService.QuyenPartner QuyenCuaPartner {
+            get {
+                return this.QuyenCuaPartnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QuyenCuaPartnerField, value) != true)) {
+                    this.QuyenCuaPartnerField = value;
+                    this.RaisePropertyChanged("QuyenCuaPartner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenOperationContrac {
+            get {
+                return this.TenOperationContracField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenOperationContracField, value) != true)) {
+                    this.TenOperationContracField = value;
+                    this.RaisePropertyChanged("TenOperationContrac");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WikiService.DichVuWiki")]
     public interface DichVuWiki {
@@ -658,6 +1036,24 @@ namespace WikiManageWeb.WikiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/KiemTraTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/KiemTraTaiKhoanResponse")]
         System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan> KiemTraTaiKhoanAsync(WikiManageWeb.WikiService.TaiKhoan userContract);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThongTinTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/ThongTinTaiKhoanResponse")]
+        WikiManageWeb.WikiService.TaiKhoan ThongTinTaiKhoan(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThongTinTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/ThongTinTaiKhoanResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan> ThongTinTaiKhoanAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanResponse")]
+        WikiManageWeb.WikiService.TaiKhoan[] DanhSachTaiKhoan();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoan", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan[]> DanhSachTaiKhoanAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdmin", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdminResponse")]
+        WikiManageWeb.WikiService.TaiKhoan[] DanhSachTaiKhoanAdmin();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdmin", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdminResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan[]> DanhSachTaiKhoanAdminAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachDanhMuc", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachDanhMucResponse")]
         WikiManageWeb.WikiService.DanhMuc[] DanhSachDanhMuc();
@@ -767,6 +1163,12 @@ namespace WikiManageWeb.WikiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaBaiViet", ReplyAction="http://tempuri.org/DichVuWiki/XoaBaiVietResponse")]
         System.Threading.Tasks.Task<bool> XoaBaiVietAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/TimBaiVietTheoTen", ReplyAction="http://tempuri.org/DichVuWiki/TimBaiVietTheoTenResponse")]
+        WikiManageWeb.WikiService.BaiViet[] TimBaiVietTheoTen(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/TimBaiVietTheoTen", ReplyAction="http://tempuri.org/DichVuWiki/TimBaiVietTheoTenResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> TimBaiVietTheoTenAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/BinhLuanSanPham", ReplyAction="http://tempuri.org/DichVuWiki/BinhLuanSanPhamResponse")]
         bool BinhLuanSanPham(WikiManageWeb.WikiService.LichSuBinhLuan editProduct);
         
@@ -778,6 +1180,12 @@ namespace WikiManageWeb.WikiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/XoaBinhLuan", ReplyAction="http://tempuri.org/DichVuWiki/XoaBinhLuanResponse")]
         System.Threading.Tasks.Task<bool> XoaBinhLuanAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThemMoiPartner", ReplyAction="http://tempuri.org/DichVuWiki/ThemMoiPartnerResponse")]
+        bool ThemMoiPartner(WikiManageWeb.WikiService.TaiKhoanPartner account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThemMoiPartner", ReplyAction="http://tempuri.org/DichVuWiki/ThemMoiPartnerResponse")]
+        System.Threading.Tasks.Task<bool> ThemMoiPartnerAsync(WikiManageWeb.WikiService.TaiKhoanPartner account);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -845,6 +1253,30 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan> KiemTraTaiKhoanAsync(WikiManageWeb.WikiService.TaiKhoan userContract) {
             return base.Channel.KiemTraTaiKhoanAsync(userContract);
+        }
+        
+        public WikiManageWeb.WikiService.TaiKhoan ThongTinTaiKhoan(int id) {
+            return base.Channel.ThongTinTaiKhoan(id);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan> ThongTinTaiKhoanAsync(int id) {
+            return base.Channel.ThongTinTaiKhoanAsync(id);
+        }
+        
+        public WikiManageWeb.WikiService.TaiKhoan[] DanhSachTaiKhoan() {
+            return base.Channel.DanhSachTaiKhoan();
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan[]> DanhSachTaiKhoanAsync() {
+            return base.Channel.DanhSachTaiKhoanAsync();
+        }
+        
+        public WikiManageWeb.WikiService.TaiKhoan[] DanhSachTaiKhoanAdmin() {
+            return base.Channel.DanhSachTaiKhoanAdmin();
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoan[]> DanhSachTaiKhoanAdminAsync() {
+            return base.Channel.DanhSachTaiKhoanAdminAsync();
         }
         
         public WikiManageWeb.WikiService.DanhMuc[] DanhSachDanhMuc() {
@@ -991,6 +1423,14 @@ namespace WikiManageWeb.WikiService {
             return base.Channel.XoaBaiVietAsync(id);
         }
         
+        public WikiManageWeb.WikiService.BaiViet[] TimBaiVietTheoTen(string name) {
+            return base.Channel.TimBaiVietTheoTen(name);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.BaiViet[]> TimBaiVietTheoTenAsync(string name) {
+            return base.Channel.TimBaiVietTheoTenAsync(name);
+        }
+        
         public bool BinhLuanSanPham(WikiManageWeb.WikiService.LichSuBinhLuan editProduct) {
             return base.Channel.BinhLuanSanPham(editProduct);
         }
@@ -1005,6 +1445,14 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> XoaBinhLuanAsync(int id) {
             return base.Channel.XoaBinhLuanAsync(id);
+        }
+        
+        public bool ThemMoiPartner(WikiManageWeb.WikiService.TaiKhoanPartner account) {
+            return base.Channel.ThemMoiPartner(account);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ThemMoiPartnerAsync(WikiManageWeb.WikiService.TaiKhoanPartner account) {
+            return base.Channel.ThemMoiPartnerAsync(account);
         }
     }
 }

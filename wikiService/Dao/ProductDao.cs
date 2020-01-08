@@ -169,5 +169,11 @@ namespace wikiService.Dao
             }
 
         }
+
+        public List<Information> SearchProduct(string name)
+        {
+            var data = db.Information.Where(x => x.titleInfo.Contains(name)).ToList();
+            return data;
+        }
     }
 }

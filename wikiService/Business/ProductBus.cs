@@ -19,6 +19,7 @@ namespace wikiService.Business
                 CateId = x.idCate,
                 UserId = x.idUser,
                 UserName = x.User.nameUser,
+                User = new UserContract() { ID = x.idUser, UserName = x.User.nameUser },
                 CategoryName = x.Category.nameCate,
                 DateCreate = x.dayCreateInfo,
                 Content = x.contentInfo,
@@ -52,6 +53,7 @@ namespace wikiService.Business
                 Title = result.titleInfo,
                 CateId = result.idCate,
                 UserId = result.idUser,
+                User = new UserContract() { ID = result.idUser, UserName = result.User.nameUser },
                 UserName = result.User.nameUser,
                 CategoryName = result.Category.nameCate,
                 DateCreate = result.dayCreateInfo,
@@ -149,18 +151,27 @@ namespace wikiService.Business
 
 
             };
-                return res;
+            return res;
         }
 
         public bool LetUserComment(EditProductViewContract editProduct)
         {
-            editProduct.DateCreateEI =DateTime.Now;
+            editProduct.DateCreateEI = DateTime.Now;
             return new ProductDao().LetUserComment(editProduct);
         }
 
         public bool DeleteComment(int id)
         {
-           return new ProductDao().DeleteComment(id);
+            return new ProductDao().DeleteComment(id);
+        }
+
+        public List<ProductViewContract> SearchProduct(string name)
+        {
+           return new ProductDao().SearchProduct(name).Select(x=>new ProductViewContract()
+           {
+               ID = x.idInfor,
+               Title = x.titleInfo   
+           }).ToList();
         }
     }
 }

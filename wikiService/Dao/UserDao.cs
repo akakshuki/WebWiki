@@ -103,5 +103,20 @@ namespace wikiService.Dao
                 UserName = dc.nameUser
             };
         }
+
+        public List<User> GetListAdminAccounts()
+        {
+            return db.Users.Where(x=>x.idR == 1).ToList();
+        }
+
+        public List<User> GetListUserAccounts()
+        {
+            return db.Users.Where(x => x.idR == 2).ToList();
+        }
+
+        public User GetUserProfileById(int id)
+        {
+            return db.Users.Find(id);
+        }
     }
 }

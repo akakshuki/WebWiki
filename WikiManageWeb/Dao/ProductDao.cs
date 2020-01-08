@@ -142,7 +142,7 @@ namespace WikiManageWeb.Dao
                 {
                     ID = data.NguoiDung.MaTaiKhoan,
                     UserName = data.NguoiDung.TenTaiKhoan,
-                    ProductViewContracts = data.NguoiDung.DanhSachBaiVietKhac.Select(x => new ProductMv
+                    ProductViews = data.NguoiDung.DanhSachBaiVietKhac.Select(x => new ProductMv
                     {
                         ID = x.MaBaiViet,
                         Title = x.TieuDe,
@@ -190,5 +190,13 @@ namespace WikiManageWeb.Dao
             return cl.XoaBinhLuan(id);
         }
 
+        public List<ProductMv> SearchProduct(string name)
+        {
+            return cl.TimBaiVietTheoTen(name).Select(x=>new ProductMv()
+            {
+                ID = x.MaBaiViet,
+                Title = x.TieuDe
+            }).ToList();
+        }
     }
 }

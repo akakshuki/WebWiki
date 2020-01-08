@@ -26,6 +26,12 @@ namespace wikiService
         bool checkEmaiilUser(string email);
         [OperationContract(Name = "KiemTraTaiKhoan")]
         UserContract CheckRoleUser(UserContract userContract);
+        [OperationContract(Name = "ThongTinTaiKhoan")]
+        UserContract UserProfile(int id);
+        [OperationContract(Name = "DanhSachTaiKhoan")]
+        List<UserContract> ListUser();
+        [OperationContract(Name = "DanhSachTaiKhoanAdmin")]
+        List<UserContract> ListUserAdmin();
         #endregion
 
 
@@ -66,7 +72,6 @@ namespace wikiService
         bool CreateNewProduct(ProductViewContract product);
         [OperationContract(Name = "ChiTietSanPham")]
         ProductViewContract DetaiContract(int id);
-
         [OperationContract(Name = "NoiDungBaiVietClient")]
         ProductViewContract GetContemProductById(int id);
         [OperationContract(Name = "SuaBaiViet")]
@@ -75,6 +80,9 @@ namespace wikiService
         bool UpdateProduct(ProductViewContract product);
         [OperationContract(Name = "XoaBaiViet")]
         bool DeleteProduct(int id);
+        [OperationContract(Name = "TimBaiVietTheoTen")]
+        List<ProductViewContract> ProductSearchByName(string name);
+
 
         [OperationContract(Name = "BinhLuanSanPham")]
         bool CommentProductByClient(EditProductViewContract editProduct);
@@ -85,12 +93,7 @@ namespace wikiService
 
 
         #region PartnerService
-        [OperationContract (Name = "TaoMoiBacPartner")]
-        bool CreateNewRoleService(AccountRoleServiceContract accountRole);
-        
-        [OperationContract (Name = "ThemMoiChungNangTrongQuyenPartner")]
-        bool CreateNewDataContractSeriveWithRole(DataContractServiceRole contractServiceRole);
-        
+      
         [OperationContract (Name = "ThemMoiPartner")]
         bool CreatePartner(AccountServiceContract account);
         
@@ -98,12 +101,7 @@ namespace wikiService
 
 
 
-        [OperationContract(Name = "DanhSachQuyenHangVaThanhVien")]
-        List<AccountRoleServiceContract> AccountRoleServiceContracts();
-        [OperationContract(Name = "DanhSachThanhVien")]
-        List<AccountServiceContract> AccountServiceContracts();
-        [OperationContract(Name = "DanhSachThanhVien")]
-        List<DataContractServiceRole> DataContractServiceRoles(int idRole);
+       
 
 
         #endregion

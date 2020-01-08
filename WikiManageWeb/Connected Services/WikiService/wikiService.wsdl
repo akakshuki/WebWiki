@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ModelViewContract" />
+      <xsd:import schemaLocation="http://localhost:60198/wikiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="DichVuWiki_DangNhap_InputMessage">
@@ -36,6 +37,24 @@
   </wsdl:message>
   <wsdl:message name="DichVuWiki_KiemTraTaiKhoan_OutputMessage">
     <wsdl:part name="parameters" element="tns:KiemTraTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ThongTinTaiKhoan_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThongTinTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ThongTinTaiKhoan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThongTinTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachTaiKhoan_InputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachTaiKhoan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachTaiKhoanAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachTaiKhoanAdmin" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachTaiKhoanAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachTaiKhoanAdminResponse" />
   </wsdl:message>
   <wsdl:message name="DichVuWiki_DanhSachDanhMuc_InputMessage">
     <wsdl:part name="parameters" element="tns:DanhSachDanhMuc" />
@@ -145,6 +164,12 @@
   <wsdl:message name="DichVuWiki_XoaBaiViet_OutputMessage">
     <wsdl:part name="parameters" element="tns:XoaBaiVietResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_TimBaiVietTheoTen_InputMessage">
+    <wsdl:part name="parameters" element="tns:TimBaiVietTheoTen" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_TimBaiVietTheoTen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TimBaiVietTheoTenResponse" />
+  </wsdl:message>
   <wsdl:message name="DichVuWiki_BinhLuanSanPham_InputMessage">
     <wsdl:part name="parameters" element="tns:BinhLuanSanPham" />
   </wsdl:message>
@@ -156,6 +181,12 @@
   </wsdl:message>
   <wsdl:message name="DichVuWiki_XoaBinhLuan_OutputMessage">
     <wsdl:part name="parameters" element="tns:XoaBinhLuanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ThemMoiPartner_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThemMoiPartner" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_ThemMoiPartner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThemMoiPartnerResponse" />
   </wsdl:message>
   <wsdl:portType name="DichVuWiki">
     <wsdl:operation name="DangNhap">
@@ -177,6 +208,18 @@
     <wsdl:operation name="KiemTraTaiKhoan">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/KiemTraTaiKhoan" message="tns:DichVuWiki_KiemTraTaiKhoan_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/KiemTraTaiKhoanResponse" message="tns:DichVuWiki_KiemTraTaiKhoan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThongTinTaiKhoan">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ThongTinTaiKhoan" message="tns:DichVuWiki_ThongTinTaiKhoan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ThongTinTaiKhoanResponse" message="tns:DichVuWiki_ThongTinTaiKhoan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTaiKhoan">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoan" message="tns:DichVuWiki_DanhSachTaiKhoan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanResponse" message="tns:DichVuWiki_DanhSachTaiKhoan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTaiKhoanAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdmin" message="tns:DichVuWiki_DanhSachTaiKhoanAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdminResponse" message="tns:DichVuWiki_DanhSachTaiKhoanAdmin_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DanhSachDanhMuc">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachDanhMuc" message="tns:DichVuWiki_DanhSachDanhMuc_InputMessage" />
@@ -250,6 +293,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/XoaBaiViet" message="tns:DichVuWiki_XoaBaiViet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/XoaBaiVietResponse" message="tns:DichVuWiki_XoaBaiViet_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="TimBaiVietTheoTen">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/TimBaiVietTheoTen" message="tns:DichVuWiki_TimBaiVietTheoTen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/TimBaiVietTheoTenResponse" message="tns:DichVuWiki_TimBaiVietTheoTen_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BinhLuanSanPham">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/BinhLuanSanPham" message="tns:DichVuWiki_BinhLuanSanPham_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/BinhLuanSanPhamResponse" message="tns:DichVuWiki_BinhLuanSanPham_OutputMessage" />
@@ -257,6 +304,10 @@
     <wsdl:operation name="XoaBinhLuan">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/XoaBinhLuan" message="tns:DichVuWiki_XoaBinhLuan_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/XoaBinhLuanResponse" message="tns:DichVuWiki_XoaBinhLuan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThemMoiPartner">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiPartner" message="tns:DichVuWiki_ThemMoiPartner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiPartnerResponse" message="tns:DichVuWiki_ThemMoiPartner_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_DichVuWiki" type="tns:DichVuWiki">
@@ -299,6 +350,33 @@
     </wsdl:operation>
     <wsdl:operation name="KiemTraTaiKhoan">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/KiemTraTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThongTinTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/ThongTinTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTaiKhoanAdmin">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/DanhSachTaiKhoanAdmin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -468,6 +546,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TimBaiVietTheoTen">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/TimBaiVietTheoTen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BinhLuanSanPham">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/BinhLuanSanPham" style="document" />
       <wsdl:input>
@@ -479,6 +566,15 @@
     </wsdl:operation>
     <wsdl:operation name="XoaBinhLuan">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/XoaBinhLuan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThemMoiPartner">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/ThemMoiPartner" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

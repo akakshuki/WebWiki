@@ -40,11 +40,13 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @RenderSection("jsFooter", false);
+    <script src="~/Scripts/Mustache.js"></script>
     <script>
         $("#menu-toggle").on('click', function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+    <script src="~/Scripts/Controller/SearchBar.js"></script>
 </body>
 </html>

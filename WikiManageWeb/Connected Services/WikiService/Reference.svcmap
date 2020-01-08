@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:60198/wikiService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="wikiService.disco" MetadataType="Disco" ID="cd127e61-7a44-4cc2-afb3-69760a4fae8e" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?disco" />
-    <MetadataFile FileName="wikiService.wsdl" MetadataType="Wsdl" ID="54df35c9-c502-48d5-a646-54fd86719f31" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?wsdl" />
-    <MetadataFile FileName="wikiService.xsd" MetadataType="Schema" ID="e4089a75-468b-46ba-8283-bd8631b73245" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd2" />
-    <MetadataFile FileName="wikiService1.xsd" MetadataType="Schema" ID="bdd7f672-4560-4336-aad7-65e1e4b9e5a0" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd1" />
     <MetadataFile FileName="wikiService2.xsd" MetadataType="Schema" ID="de24f395-4e34-4ebd-b952-c87b5bc1c54f" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="wikiService.disco" MetadataType="Disco" ID="cd127e61-7a44-4cc2-afb3-69760a4fae8e" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?disco" />
+    <MetadataFile FileName="wikiService.xsd" MetadataType="Schema" ID="e4089a75-468b-46ba-8283-bd8631b73245" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="wikiService3.xsd" MetadataType="Schema" ID="0d84992a-5cfb-49d9-b65d-8ec23e1fc401" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="wikiService.wsdl" MetadataType="Wsdl" ID="54df35c9-c502-48d5-a646-54fd86719f31" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?wsdl" />
+    <MetadataFile FileName="wikiService1.xsd" MetadataType="Schema" ID="bdd7f672-4560-4336-aad7-65e1e4b9e5a0" SourceId="1" SourceUrl="http://localhost:60198/wikiService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

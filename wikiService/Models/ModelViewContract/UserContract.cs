@@ -22,6 +22,10 @@ namespace wikiService.Models.ModelViewContract
         [DataMember(Name = "IDRole")]
         public int idR { get; set; }
 
+        [DataMember(Name = "SoBaiViet")]
+        public int ProductCount { get; set; }
+        [DataMember(Name = "SoBinhLuan")]
+        public int EditProductCount { get; set; }
         [DataMember(Name = "DanhSachBaiVietKhac")]
         public List<ProductViewContract> ProductViewContracts { get; set; }
         [DataMember(Name = "DanhSachBinhLuan")]

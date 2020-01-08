@@ -140,5 +140,25 @@ namespace wikiService
         {
             return  new PartnerBus().CreaterNewPartner(account);
         }
+
+        public List<UserContract> listUserAdmin()
+        {
+          return  new LoginBus().UserAdminAccounts();
+        }
+
+        public List<UserContract> listUser()
+        {
+            return new LoginBus().UserAccounts();
+        }
+
+        public UserContract GetUserProfile(int id)
+        {
+           return new LoginBus().GetProfileUser(id);
+        }
+
+        public List<ProductViewContract> SearchProduct(string name)
+        {
+            return  new ProductBus().SearchProduct(name);
+        }
     }
 }

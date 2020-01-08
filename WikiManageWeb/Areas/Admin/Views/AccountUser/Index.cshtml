@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WikiManageWeb.Models.ModelsView.UserMv>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+      <th>
+            @Html.DisplayNameFor(model => model.active)
+        </th>
+      <th>
+            @Html.DisplayNameFor(model => model.ProductCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditProductCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+      <td>
+            @Html.DisplayFor(modelItem => item.active)
+        </td>
+      <td>
+            @Html.DisplayFor(modelItem => item.ProductCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditProductCount)
+        </td>
+        <td>
+            @Html.ActionLink("Block ", "BlockUser", new { id = item.ID }) |
+            @Html.ActionLink("Detail ", "BlockUser", new { id = item.ID }) 
+        </td>
+    </tr>
+}
+
+</table>
