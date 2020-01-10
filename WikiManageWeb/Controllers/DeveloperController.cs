@@ -59,7 +59,15 @@ namespace WikiManageWeb.Controllers
         public ActionResult MainPage()
         {
             AccountService account =(AccountService) Session[CommonConstants.ACCOUNT_DEV];
-            return View(account);
+            if (account != null)
+            {
+                return View(account);
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            
         }
     }
 }
