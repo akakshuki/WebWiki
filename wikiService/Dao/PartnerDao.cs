@@ -10,26 +10,68 @@ namespace wikiService.Dao
 {
     public class PartnerDao
     {
-        private ConcurrencyCheckAttributeConvention db = null;
+        private MangeServiceEntities db = null;
 
         public PartnerDao()
         {
-            db = new ConcurrencyCheckAttributeConvention();
+            db = new MangeServiceEntities();
         }
 
 
         public bool CreateNewPartner(AccountServiceContract accountRole)
         {
-           var data = new AccountService()
-           {
-               Name = accountRole.Name,
-               Password = accountRole.Password,
-               IDASR = accountRole.AccountRoleServiceContract.ID,
-               Token = accountRole.Token,
+            try
+            {
+                var data = new AccountService()
+                {
+                    Name = accountRole.Name,
+                    Password = accountRole.Password,
+                    IDASR = accountRole.IDASR,
+                    Token = accountRole.Token,
+                    Active = true
+           
                
-               
-           };
-           return false;
+                };
+                db.AccountServices.Add(data);
+                    if (db.SaveChanges() > 0 )
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public IEnumerable<AccountRoleServiceContract> GetListPartnerRole()
+        {
+            var list = db.AccountServiceRoles.Select(x=>new AccountRoleServiceContract()
+            {
+                ID = x.ID,
+                Name = x.Name
+            }).ToList();
+            return list;
+        }
+
+        public AccountServiceContract GetPartnerLogin(AccountServiceContract account)
+        {
+            var data = db.AccountServices.Where(x => x.Name == account.Name && x.Password == account.Password)
+                .SingleOrDefault();
+            var res = new AccountServiceContract()
+            {
+                ID = data.ID,
+                Name = data.Name,
+               Token = data.Token,
+               Link = "http://localhost:60198/wikiService.svc"
+            };
+            return res;
         }
     }
 }

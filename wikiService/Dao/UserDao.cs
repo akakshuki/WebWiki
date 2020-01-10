@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
+using wikiService.Models.ServicepartnerContract;
 
 namespace wikiService.Dao
 {
@@ -19,7 +20,7 @@ namespace wikiService.Dao
         {
             try
             {
-                var idUser = db.Users.Where(x => x.email == email && x.pwd == password).Select( x=> new
+                var idUser = db.Users.Where(x => x.email == email && x.pwd == password).Select(x => new
                 {
                     ID = x.idUser,
                     Status = x.active
@@ -27,10 +28,12 @@ namespace wikiService.Dao
                 if (idUser != null && idUser.Status)
                 {
                     return idUser.ID;
-                }else if (idUser.Status == false)
+                }
+                else if (idUser.Status == false)
                 {
                     return -1;
-                }else
+                }
+                else
                 {
                     return 0;
                 }
@@ -61,7 +64,7 @@ namespace wikiService.Dao
             db.Users.Add(data);
             try
             {
-                if (db.SaveChanges()>0)
+                if (db.SaveChanges() > 0)
                 {
                     return true;
                 }
@@ -89,7 +92,7 @@ namespace wikiService.Dao
             {
                 return false;
             }
-             
+
 
         }
 
@@ -97,7 +100,7 @@ namespace wikiService.Dao
         public UserContract GetUserDetailById(int argIdUser)
         {
             var dc = db.Users.Find(argIdUser);
-            return  new UserContract()
+            return new UserContract()
             {
                 ID = dc.idUser,
                 UserName = dc.nameUser
@@ -106,7 +109,7 @@ namespace wikiService.Dao
 
         public List<User> GetListAdminAccounts()
         {
-            return db.Users.Where(x=>x.idR == 1).ToList();
+            return db.Users.Where(x => x.idR == 1).ToList();
         }
 
         public List<User> GetListUserAccounts()
@@ -118,5 +121,6 @@ namespace wikiService.Dao
         {
             return db.Users.Find(id);
         }
+
     }
 }

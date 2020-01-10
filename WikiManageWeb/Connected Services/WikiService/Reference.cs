@@ -668,6 +668,9 @@ namespace WikiManageWeb.WikiService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MaQuyenPartnerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -695,6 +698,19 @@ namespace WikiManageWeb.WikiService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Link {
+            get {
+                return this.LinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LinkField, value) != true)) {
+                    this.LinkField = value;
+                    this.RaisePropertyChanged("Link");
+                }
             }
         }
         
@@ -1186,6 +1202,18 @@ namespace WikiManageWeb.WikiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/ThemMoiPartner", ReplyAction="http://tempuri.org/DichVuWiki/ThemMoiPartnerResponse")]
         System.Threading.Tasks.Task<bool> ThemMoiPartnerAsync(WikiManageWeb.WikiService.TaiKhoanPartner account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachServiceRole", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachServiceRoleResponse")]
+        WikiManageWeb.WikiService.QuyenPartner[] DanhSachServiceRole();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/DanhSachServiceRole", ReplyAction="http://tempuri.org/DichVuWiki/DanhSachServiceRoleResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.QuyenPartner[]> DanhSachServiceRoleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/PartnerLogin", ReplyAction="http://tempuri.org/DichVuWiki/PartnerLoginResponse")]
+        WikiManageWeb.WikiService.TaiKhoanPartner PartnerLogin(WikiManageWeb.WikiService.TaiKhoanPartner account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DichVuWiki/PartnerLogin", ReplyAction="http://tempuri.org/DichVuWiki/PartnerLoginResponse")]
+        System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoanPartner> PartnerLoginAsync(WikiManageWeb.WikiService.TaiKhoanPartner account);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1453,6 +1481,22 @@ namespace WikiManageWeb.WikiService {
         
         public System.Threading.Tasks.Task<bool> ThemMoiPartnerAsync(WikiManageWeb.WikiService.TaiKhoanPartner account) {
             return base.Channel.ThemMoiPartnerAsync(account);
+        }
+        
+        public WikiManageWeb.WikiService.QuyenPartner[] DanhSachServiceRole() {
+            return base.Channel.DanhSachServiceRole();
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.QuyenPartner[]> DanhSachServiceRoleAsync() {
+            return base.Channel.DanhSachServiceRoleAsync();
+        }
+        
+        public WikiManageWeb.WikiService.TaiKhoanPartner PartnerLogin(WikiManageWeb.WikiService.TaiKhoanPartner account) {
+            return base.Channel.PartnerLogin(account);
+        }
+        
+        public System.Threading.Tasks.Task<WikiManageWeb.WikiService.TaiKhoanPartner> PartnerLoginAsync(WikiManageWeb.WikiService.TaiKhoanPartner account) {
+            return base.Channel.PartnerLoginAsync(account);
         }
     }
 }

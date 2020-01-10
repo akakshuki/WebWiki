@@ -408,4 +408,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DanhSachServiceRole">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DanhSachServiceRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" minOccurs="0" name="DanhSachServiceRoleResult" nillable="true" type="q26:ArrayOfQuyenPartner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PartnerLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" minOccurs="0" name="account" nillable="true" type="q27:TaiKhoanPartner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PartnerLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/wikiService.Models.ServicepartnerContract" minOccurs="0" name="PartnerLoginResult" nillable="true" type="q28:TaiKhoanPartner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

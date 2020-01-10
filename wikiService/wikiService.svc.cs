@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using wikiService.Dao;
 using wikiService.EF;
 using wikiService.Models.ModelViewContract;
 using wikiService.Models.ServicepartnerContract;
@@ -200,7 +201,15 @@ namespace wikiService
             return new Responsetory().CreateNewPartner(account);
         }
 
-     
+        public IEnumerable<AccountRoleServiceContract> RoleService()
+        {
+            return new Responsetory().GetListPartnerRole();
+        }
+
+        public AccountServiceContract PartnerLogin(AccountServiceContract account)
+        {
+            return new PartnerDao().GetPartnerLogin(account);
+        }
 
         #endregion
     }

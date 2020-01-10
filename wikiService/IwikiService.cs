@@ -41,11 +41,11 @@ namespace wikiService
         IEnumerable<CategoryContract> ListCategory();
         [OperationContract(Name = "ThemMoiDanhMuc")]
         bool CreateCategory(CategoryContract category);
-        [OperationContract (Name = "KiemTraDanhMucDaTonTai")]
+        [OperationContract(Name = "KiemTraDanhMucDaTonTai")]
         bool CheckCategoryExist(string categoryName);
-        [OperationContract (Name =  "ChitTietDanhMuc")]
+        [OperationContract(Name = "ChitTietDanhMuc")]
         CategoryContract DetailCategory(int idCategory);
-        [OperationContract (Name = "SuaDanhMuc")]
+        [OperationContract(Name = "SuaDanhMuc")]
         bool EditCategory(CategoryContract category);
         [OperationContract(Name = "XoaDanhMuc")]
         bool DeleteCategory(int id);
@@ -64,7 +64,7 @@ namespace wikiService
         IEnumerable<ProductViewContract> ListAllProductClientView();
         [OperationContract(Name = "DanhSachSanPhamTheoDanhMuc")]
         IEnumerable<ProductViewContract> ListAllProductByCategory(int idCate);
-       
+
 
         [OperationContract(Name = "KiemTraTieuDeDaTonTai")]
         bool CheckTitleExist(string title);
@@ -93,16 +93,13 @@ namespace wikiService
 
 
         #region PartnerService
-      
-        [OperationContract (Name = "ThemMoiPartner")]
+
+        [OperationContract(Name = "ThemMoiPartner")]
         bool CreatePartner(AccountServiceContract account);
-        
-
-
-
-
-       
-
+        [OperationContract(Name = "DanhSachServiceRole")]
+        IEnumerable<AccountRoleServiceContract> RoleService();
+        [OperationContract(Name = "PartnerLogin")]
+        AccountServiceContract PartnerLogin(AccountServiceContract account);
 
         #endregion
 

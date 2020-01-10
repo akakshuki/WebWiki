@@ -22,5 +22,7 @@ namespace WikiManageWeb.Data
         public System.Data.Entity.DbSet<WikiManageWeb.Models.ModelsView.ProductMv> ProductMvs { get; set; }
 
         public System.Data.Entity.DbSet<WikiManageWeb.Models.ModelsView.UserMv> UserMvs { get; set; }
+
+        public System.Data.Entity.DbSet<WikiManageWeb.Models.AuthModelView.AccountService> AccountServices { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Web;
 using wikiService.Business;
@@ -159,6 +160,11 @@ namespace wikiService
         public List<ProductViewContract> SearchProduct(string name)
         {
             return  new ProductBus().SearchProduct(name);
+        }
+
+        public IEnumerable<AccountRoleServiceContract> GetListPartnerRole()
+        {
+         return  new PartnerBus().GetPartnerRole();
         }
     }
 }

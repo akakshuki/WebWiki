@@ -9,5 +9,8 @@
         public const string SuccessMessage = "SUCCESSMESSAGE";
 
 
+        public const string ACCOUNT_DEV = "ACCOUNT_DEV";
+
+
     }
 }

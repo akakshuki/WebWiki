@@ -18,7 +18,8 @@ namespace wikiService.Models.ServicepartnerContract
         public string Password { get; set; }
         [DataMember(Name = "MaToken")]
         public string Token { get; set; }
-        
+        [DataMember(Name = "Link")]
+        public string Link { get; set; }
         [DataMember(Name = "TrangThai")]
         public bool Active { get; set; }
 

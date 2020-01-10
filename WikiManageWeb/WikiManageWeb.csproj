@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
+    <Compile Include="Dao\PartnerDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Connected Services\WikiService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -186,6 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthModelView\AccountRole.cs" />
+    <Compile Include="Models\AuthModelView\AccountService.cs" />
+    <Compile Include="Models\AuthModelView\DataContract.cs" />
     <Compile Include="Models\ModelsView\CategoryMv.cs" />
     <Compile Include="Models\ModelsView\EditProductMv.cs" />
     <Compile Include="Models\ModelsView\ProductMv.cs" />
@@ -3494,6 +3498,12 @@
     <Content Include="Areas\Admin\Views\Home\AdminHome.cshtml" />
     <Content Include="Areas\Admin\Views\AccountUser\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AccountAdmin\Index.cshtml" />
+    <Content Include="Connected Services\WikiService\WikiManageWeb.WikiService.QuyenPartner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WikiService\WikiManageWeb.WikiService.TaiKhoanPartner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\WikiService\wikiService.disco" />
     <None Include="Connected Services\WikiService\configuration91.svcinfo" />
     <None Include="Connected Services\WikiService\configuration.svcinfo" />
@@ -4034,6 +4044,8 @@
     <Content Include="Views\Developer\Register.cshtml" />
     <Content Include="Views\Home\CreatNenContent.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Developer\Login.cshtml" />
+    <Content Include="Views\Developer\MainPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Acess\IMG\" />

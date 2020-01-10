@@ -188,6 +188,18 @@
   <wsdl:message name="DichVuWiki_ThemMoiPartner_OutputMessage">
     <wsdl:part name="parameters" element="tns:ThemMoiPartnerResponse" />
   </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachServiceRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachServiceRole" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_DanhSachServiceRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DanhSachServiceRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_PartnerLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:PartnerLogin" />
+  </wsdl:message>
+  <wsdl:message name="DichVuWiki_PartnerLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PartnerLoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="DichVuWiki">
     <wsdl:operation name="DangNhap">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DangNhap" message="tns:DichVuWiki_DangNhap_InputMessage" />
@@ -308,6 +320,14 @@
     <wsdl:operation name="ThemMoiPartner">
       <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiPartner" message="tns:DichVuWiki_ThemMoiPartner_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/ThemMoiPartnerResponse" message="tns:DichVuWiki_ThemMoiPartner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachServiceRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachServiceRole" message="tns:DichVuWiki_DanhSachServiceRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/DanhSachServiceRoleResponse" message="tns:DichVuWiki_DanhSachServiceRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PartnerLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/DichVuWiki/PartnerLogin" message="tns:DichVuWiki_PartnerLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DichVuWiki/PartnerLoginResponse" message="tns:DichVuWiki_PartnerLogin_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_DichVuWiki" type="tns:DichVuWiki">
@@ -575,6 +595,24 @@
     </wsdl:operation>
     <wsdl:operation name="ThemMoiPartner">
       <soap:operation soapAction="http://tempuri.org/DichVuWiki/ThemMoiPartner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachServiceRole">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/DanhSachServiceRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PartnerLogin">
+      <soap:operation soapAction="http://tempuri.org/DichVuWiki/PartnerLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
