@@ -50,8 +50,11 @@
       <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,10 +70,12 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthService.svc" />
     <Content Include="EF\CheckConnectSerivicePartner.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CheckConnectSerivicePartner.edmx</DependentUpon>
@@ -95,6 +100,9 @@
     <Content Include="wikiService.svc" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthService.svc.cs">
+      <DependentUpon>AuthService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Business\CategoryBus.cs" />
     <Compile Include="Business\LoginBus.cs" />
     <Compile Include="Business\ProductBus.cs" />
@@ -161,6 +169,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>wikiModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="IAuthService.cs" />
     <Compile Include="IwikiService.cs" />
     <Compile Include="Models\ModelViewContract\CategoryContract.cs" />
     <Compile Include="Models\ModelViewContract\EditProductViewContract.cs" />
@@ -169,6 +178,7 @@
     <Compile Include="Models\ServicepartnerContract\AccountRoleServiceContract.cs" />
     <Compile Include="Models\ServicepartnerContract\AccountServiceContract.cs" />
     <Compile Include="Models\ServicepartnerContract\DataContractServiceRole.cs" />
+    <Compile Include="Models\ServicepartnerContract\TokeCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsetory.cs" />
     <Compile Include="wikiService.svc.cs">
@@ -176,7 +186,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

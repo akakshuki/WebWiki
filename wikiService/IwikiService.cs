@@ -100,7 +100,6 @@ namespace wikiService
         IEnumerable<AccountRoleServiceContract> RoleService();
         [OperationContract(Name = "PartnerLogin")]
         AccountServiceContract PartnerLogin(AccountServiceContract account);
-
         #endregion
 
     }

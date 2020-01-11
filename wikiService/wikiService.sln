@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiManageWeb", "..\WikiMan
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPartnerWIki", "..\WebPartnerWIki\WebPartnerWIki.csproj", "{85D16DDD-9EE1-4F63-82DA-002A75528DE8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{40C512DB-683A-4B68-A937-BA65D0EC1846} = {40C512DB-683A-4B68-A937-BA65D0EC1846}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

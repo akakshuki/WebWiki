@@ -69,9 +69,21 @@ namespace wikiService.Dao
                 ID = data.ID,
                 Name = data.Name,
                Token = data.Token,
-               Link = "http://localhost:60198/wikiService.svc"
+               Link = "http://localhost:60198/AuthService.svc"
             };
             return res;
+        }
+
+        public bool CheckToken(string token)
+        {
+            if (db.AccountServices.Where(x=>x.Token == token).Count() > 0 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model WebPartnerWIki.AuthSerive.BaiViet
+
+@{
+    ViewBag.Title = "ContentProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ContentProduct</h2>
+
+<div>
+    <h4>BaiViet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.Raw(@Model.NoiDung)
+        </dd>
+        
+    </dl>
+</div>
